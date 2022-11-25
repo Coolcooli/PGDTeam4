@@ -1,0 +1,14 @@
+{
+  "dialoges": [
+    {
+      "index": 0,
+      "name": "Me",
+      "sentences": [ "test1", "test2", "test3" ]
+    },
+    {
+      "index": 1,
+      "name": "Captain",
+      "sentences": [ "test11", "test22", "test33" ]
+    }
+  ]
+}
