@@ -34,7 +34,7 @@ public class PlayerOxygen : MonoBehaviour
 
         if (inWater)
         {
-            oxygen -= (oxygenCost * Time.deltaTime);
+            oxygen -= oxygenCost * Time.deltaTime;
         }
         else if (oxygen < maxOxygen)
         {

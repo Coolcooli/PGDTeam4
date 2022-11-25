@@ -7,10 +7,14 @@ public class PlayerInteract : MonoBehaviour
 {
     [SerializeField]
     public static int InteractRange = 3;//the range how far away the player can interact with objects
-    [SerializeField]
     private Transform cam;//the camera of the player
     [SerializeField]
     private PlayerInventory inventory;
+
+    private void Awake()
+    {
+        cam = Camera.main.transform;
+    }
 
     /// <summary>
     /// function that calls the interact event on the object the player is looking at

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -36,20 +37,14 @@ public class Player : MonoBehaviour
     /// <param name="other">The object that the player collides with</param>
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Air")
+        switch (other.tag)
         {
-            isInWater = false;
-        }
-    }
-    /// <summary>
-    /// Checks if the player in exiting air
-    /// </summary>
-    /// <param name="other">The object that the player collides with</param>
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Air")
-        {
-            isInWater = true;
+            case "Air":
+                isInWater = false;
+                break;
+            case "Water":
+                isInWater = true;
+                break;
         }
     }
 }
