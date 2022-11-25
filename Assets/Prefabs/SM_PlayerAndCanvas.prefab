@@ -58,7 +58,7 @@ PrefabInstance:
     - target: {fileID: 1355036789072795771, guid: 50d766ebad5c2df4ca1b0d3068805a91,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1355036789072795771, guid: 50d766ebad5c2df4ca1b0d3068805a91,
         type: 3}
@@ -103,7 +103,27 @@ PrefabInstance:
     - target: {fileID: 4792251424872913590, guid: 50d766ebad5c2df4ca1b0d3068805a91,
         type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 18
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792251424872913590, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[18].m_ActionId
+      value: 2164b8c0-d0f9-4186-b15d-c0fb7ab972da
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792251424872913590, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[19].m_ActionId
+      value: c78125e9-e20d-4f19-a731-4114123c9fa5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792251424872913590, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[18].m_ActionName
+      value: Player/Pause[/Keyboard/escape]
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792251424872913590, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[19].m_ActionName
+      value: UI/exit[/Keyboard/escape]
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50d766ebad5c2df4ca1b0d3068805a91, type: 3}

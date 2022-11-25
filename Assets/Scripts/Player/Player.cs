@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     private PlayerStateFactory states;
 
+    [SerializeField]
     private bool isInWater = true;
     public bool IsInWater { get { return isInWater; } }
 
