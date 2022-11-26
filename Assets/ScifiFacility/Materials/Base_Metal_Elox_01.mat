@@ -132,7 +132,7 @@ Material:
     - _BaseDielectricSmoothness: 1
     - _BaseDirtAmount: 0.001
     - _BaseDirtStrength: 0.25
-    - _BaseMetallic: 1
+    - _BaseMetallic: 0.8
     - _BaseMetalness: 1
     - _BaseNormalStrength: 0.23
     - _BaseRoughness: 0.5

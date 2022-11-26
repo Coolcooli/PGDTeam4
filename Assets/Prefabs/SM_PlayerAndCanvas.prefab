@@ -172,11 +172,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 1813589519868378814, guid: d41b8e457077ee544be913bf09a61c1e,
-        type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 1813589519868378815, guid: d41b8e457077ee544be913bf09a61c1e,
         type: 3}
       propertyPath: m_Pivot.x
