@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Door_02 : MonoBehaviour
 {
-    public Animation Wing;
+    [SerializeField]
+    private Animation wing;
 
     void OnTriggerEnter(Collider c)
     {
         if (c.tag.Equals("Player"))
         {
             GetComponent<AudioSource>().Play();
-            Wing["door_02_wing"].speed = 1;
-            Wing.Play();
+            wing["door_02_wing"].speed = 1;
+            wing.Play();
         }
     }
 
@@ -21,9 +22,9 @@ public class Door_02 : MonoBehaviour
         if (c.tag.Equals("Player"))
         {
             GetComponent<AudioSource>().Play();
-            Wing["door_02_wing"].time = Wing["door_02_wing"].length;
-            Wing["door_02_wing"].speed = -1;
-            Wing.Play();
+            wing["door_02_wing"].time = wing["door_02_wing"].length;
+            wing["door_02_wing"].speed = -1;
+            wing.Play();
         }
     }
 }

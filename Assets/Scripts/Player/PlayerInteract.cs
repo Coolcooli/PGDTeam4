@@ -8,12 +8,12 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField]
     public static int InteractRange = 3;//the range how far away the player can interact with objects
     private Transform cam;//the camera of the player
-    [SerializeField]
     private PlayerInventory inventory;
 
     private void Awake()
     {
         cam = Camera.main.transform;
+        inventory = GetComponent<PlayerInventory>();
     }
 
     /// <summary>
@@ -41,7 +41,6 @@ public class PlayerInteract : MonoBehaviour
             }
 
             ToPlace placeable = hit.collider.GetComponent<ToPlace>();
-            print(placeable);
             if (placeable != null)
             {
                 if(placeable.Interaction(inventory.Holding))

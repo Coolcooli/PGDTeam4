@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ZapTrigger : MonoBehaviour
 {
-    [SerializeField] AudioSource sound;
+    [SerializeField] private AudioSource sound;
     private void OnParticleCollision(GameObject other)
     {
         sound.Play();

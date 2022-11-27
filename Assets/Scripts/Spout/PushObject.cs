@@ -6,13 +6,15 @@ public class PushObject : MonoBehaviour
 {
     private List<Rigidbody> affectedObjects = new List<Rigidbody>();
     private CharacterController player;
-    private const float objStrength = 1350f;
+    private const float objStrength = 800f;
     private const float playerStrength = 8f;
     private const float maxVelocity = 20f;
 
     [SerializeField]
     private bool isActive = false;
-    public bool IsActive { set { isActive = value; } }
+
+    [SerializeField]
+    private float duration = 5f;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -42,16 +44,20 @@ public class PushObject : MonoBehaviour
         foreach (Rigidbody obj in affectedObjects)
         {
             if (obj.velocity.magnitude < maxVelocity)
-                obj.AddForce(transform.forward * PushStrength(obj.position) * objStrength * Time.deltaTime);
+                obj.AddForce(transform.forward * objStrength * Time.deltaTime);
         }
         if (player)
-            player.Move(transform.forward * PushStrength(player.transform.position) * playerStrength * Time.deltaTime);
+            player.Move(transform.forward * playerStrength * Time.deltaTime);
+    }
+    public void Deactivate()
+    {
+        isActive = false;
     }
 
-    private float PushStrength(Vector3 objPos)
+    public void Activate(bool endWithDuration = false)
     {
-        float distance = Vector3.Distance(objPos,transform.position);
-        float strength = 1 / distance;
-        return strength;
+        isActive = true;
+        if (endWithDuration)
+            Invoke("Deactivate", duration);
     }
 }

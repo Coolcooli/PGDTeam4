@@ -17,11 +17,15 @@ public class PlayerOxygen : MonoBehaviour
     [SerializeField]
     private float oxygenRegen = 0.15f;
 
-    [SerializeField]
     private Player player;
 
     [SerializeField]
     private Image OxygenBar;
+
+    private void Awake()
+    {
+        player = GetComponent<Player>();
+    }
 
     public void Update()
     {

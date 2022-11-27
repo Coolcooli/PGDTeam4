@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -4291073222759767421}
   - component: {fileID: 5879487736362399506}
   - component: {fileID: 4792251424872913590}
+  - component: {fileID: 264427449239939327}
   m_Layer: 0
   m_Name: SM_Player
   m_TagString: Untagged
@@ -51,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad6d82fc96661245a7e0931e0f9032c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInWater: 0
 --- !u!143 &1355036789072795761
 CharacterController:
   m_ObjectHideFlags: 0
@@ -81,7 +83,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc99fa6113917224aa193832ecb4cedf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 2016603653}
 --- !u!114 &2016603653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a4ce462c0e9a24396f4a3fecddf012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 10
+  jumpForce: 8
   landSpeed: 5
   waterSpeed: 3
 --- !u!114 &4792251424872913590
@@ -200,8 +201,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2016603652}
         m_TargetAssemblyTypeName: PlayerInteract, Assembly-CSharp
-        m_MethodName: OnInteract
-        m_Mode: 0
+        m_MethodName: Interact
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -321,6 +322,24 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &264427449239939327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355036789072795770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b98fd0539c84e849a25d42e8ec79ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oxygen: 25
+  maxOxygen: 25
+  minOxygen: 0
+  oxygenCost: 1
+  oxygenRegen: 3
+  OxygenBar: {fileID: 0}
 --- !u!1 &1355036789228639544
 GameObject:
   m_ObjectHideFlags: 0
