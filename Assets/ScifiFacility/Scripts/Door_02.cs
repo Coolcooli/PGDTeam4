@@ -6,9 +6,13 @@ public class Door_02 : MonoBehaviour
 {
     [SerializeField]
     private Animation wing;
+    [SerializeField]
+    private bool isLocked;
 
     void OnTriggerEnter(Collider c)
     {
+        if (isLocked) return;
+
         if (c.tag.Equals("Player"))
         {
             GetComponent<AudioSource>().Play();
@@ -19,6 +23,8 @@ public class Door_02 : MonoBehaviour
 
     void OnTriggerExit(Collider c)
     {
+        if (isLocked) return;
+
         if (c.tag.Equals("Player"))
         {
             GetComponent<AudioSource>().Play();
@@ -26,5 +32,10 @@ public class Door_02 : MonoBehaviour
             wing["door_02_wing"].speed = -1;
             wing.Play();
         }
+    }
+
+    public void UnlockDoor()
+    {
+        isLocked = false;
     }
 }
