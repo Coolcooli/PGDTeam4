@@ -18,7 +18,8 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
-  stringTagMap: {}
+  stringTagMap:
+    MotionVector: User
   disabledShaderPasses:
   - TransparentBackface
   m_SavedProperties:
@@ -203,6 +204,6 @@ Material:
     - _Color: {r: 0.6431373, g: 0.6666667, b: 0.7176471, a: 1}
     - _Color0: {r: 0.985294, g: 0.985294, b: 0.985294, a: 0}
     - _DetailColor: {r: 0.5058824, g: 0.5294118, b: 0.58431375, a: 1}
-    - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
+    - _DoubleSidedConstants: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
