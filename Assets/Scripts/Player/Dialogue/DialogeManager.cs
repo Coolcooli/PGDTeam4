@@ -21,28 +21,27 @@ public class DialogeManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
-        importDialoges();
+        ImportDialoges();
     }
 
-    /// <summary>
-    /// Function used to import dialoges from the JSON file
-    /// </summary>
-    void importDialoges()
+    public void ImportDialoges()
     {
         Dialoges dialog = JsonUtility.FromJson<Dialoges>(jsonFile.text);
 
-        foreach (Dialoge dialoge in dialog.dialoges)
+        foreach(Dialoge dialoge in dialog.dialoges)
         {
             dialoges.Add(dialoge);
         }
+
     }
 
     /// <summary>
     /// Function to start a new Dialoge
     /// </summary>
     /// <param name="dialoge"></param>
-    public void StartDialoge(Dialoge dialoge)
+    public void StartDialoge(int index)
     {
+        Dialoge dialoge = dialoges[index];
         sentences.Clear();
 
         foreach(string sentence in dialoge.sentences)
@@ -77,6 +76,7 @@ public class DialogeManager : MonoBehaviour
     {
         //END DIALOGUE
     }
+
     /// <summary>
     /// Coroutine to display all letters one by one 
     /// </summary>
