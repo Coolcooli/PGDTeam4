@@ -5,6 +5,7 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
     [SerializeField] private AudioSource source;
+
     public void PlayAudio(float playDuration)
     {
         source.Play();
