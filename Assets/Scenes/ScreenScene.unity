@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 6663.3438, g: 6600.6704, b: 6530.454, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -202,6 +202,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 505094373}
+  - component: {fileID: 505094374}
   m_Layer: 0
   m_Name: DataCenterLab
   m_TagString: Untagged
@@ -224,6 +225,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &505094374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505094372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d106598b320a44040aac73b32baff155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onActiveChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 862604716}
+        m_TargetAssemblyTypeName: ActiveState, Assembly-CSharp
+        m_MethodName: SetActiveState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &638590800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -463,11 +491,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 862604710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35c3efff9f81c11468c61dc412d19f4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2928e4b3e6133384781ad792c54bd243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  property:
-    m_Name: 
 --- !u!1001 &1056466071
 PrefabInstance:
   m_ObjectHideFlags: 0
