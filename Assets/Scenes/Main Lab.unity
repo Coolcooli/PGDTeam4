@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 23.447784, g: 19.26062, b: 14.242065, a: 1}
+  m_IndirectSpecularColor: {r: 23.447845, g: 19.260666, b: 14.242073, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -33045,6 +33045,12 @@ MonoScript:
   m_ExecutionOrder: 0
   m_ClassName: SceneObjectIDMapSceneAsset
   m_Namespace: UnityEngine.Rendering.HighDefinition
+--- !u!1 &639606102 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1355036789072795770, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+    type: 3}
+  m_PrefabInstance: {fileID: 2007398692}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &641774404
 GameObject:
   m_ObjectHideFlags: 0
@@ -52436,7 +52442,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 2007398692}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 639606102}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fad6d82fc96661245a7e0931e0f9032c, type: 3}
@@ -81367,6 +81373,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7515840436345639641, guid: d41b8e457077ee544be913bf09a61c1e,
         type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 639606102}
+    - target: {fileID: 7515840436345639641, guid: d41b8e457077ee544be913bf09a61c1e,
+        type: 3}
       propertyPath: pauseUI
       value: 
       objectReference: {fileID: 422236866}
@@ -99204,12 +99215,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4792251424872913590, guid: 50d766ebad5c2df4ca1b0d3068805a91,
         type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792251424872913590, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+        type: 3}
       propertyPath: m_ActionEvents.Array.data[18].m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4792251424872913590, guid: 50d766ebad5c2df4ca1b0d3068805a91,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[19].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792251424872913590, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4792251424872913590, guid: 50d766ebad5c2df4ca1b0d3068805a91,
@@ -99224,6 +99245,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4792251424872913590, guid: 50d766ebad5c2df4ca1b0d3068805a91,
         type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5299351303318833898}
+    - target: {fileID: 4792251424872913590, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+        type: 3}
       propertyPath: m_ActionEvents.Array.data[18].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1624872938}
@@ -99234,6 +99260,11 @@ PrefabInstance:
       objectReference: {fileID: 5299351303318833898}
     - target: {fileID: 4792251424872913590, guid: 50d766ebad5c2df4ca1b0d3068805a91,
         type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792251424872913590, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+        type: 3}
       propertyPath: m_ActionEvents.Array.data[18].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -99241,6 +99272,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ActionEvents.Array.data[19].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792251424872913590, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
       objectReference: {fileID: 0}
     - target: {fileID: 4792251424872913590, guid: 50d766ebad5c2df4ca1b0d3068805a91,
         type: 3}
@@ -99254,6 +99290,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4792251424872913590, guid: 50d766ebad5c2df4ca1b0d3068805a91,
         type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ResumeGame, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792251424872913590, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+        type: 3}
       propertyPath: m_ActionEvents.Array.data[18].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PauseGame, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -99261,6 +99302,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ActionEvents.Array.data[19].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ResumeGame, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792251424872913590, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4792251424872913590, guid: 50d766ebad5c2df4ca1b0d3068805a91,
         type: 3}
@@ -107286,6 +107332,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6858314219028149700, guid: 903a40e913a3081408c48de2ade39128,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 639606102}
     - target: {fileID: 6858314219028149700, guid: 903a40e913a3081408c48de2ade39128,
         type: 3}
       propertyPath: UI.Array.data[0]

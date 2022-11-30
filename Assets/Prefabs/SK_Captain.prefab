@@ -942,12 +942,8 @@ GameObject:
   - component: {fileID: 3296055610799729889}
   - component: {fileID: 568819861}
   - component: {fileID: 568819863}
-  - component: {fileID: 568819866}
+  - component: {fileID: 1197695378989464388}
   - component: {fileID: 6577301970014945460}
-  - component: {fileID: 7414433339142030855}
-  - component: {fileID: 568819862}
-  - component: {fileID: 568819864}
-  - component: {fileID: 568819867}
   m_Layer: 0
   m_Name: SK_Captain
   m_TagString: Interactable
@@ -988,10 +984,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28e6b53b83ef32d4c9ad07e3a5a94a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 3
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  movementSpeed: 2
+  waypoints: []
 --- !u!114 &568819863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1007,10 +1001,10 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 568819867}
-        m_TargetAssemblyTypeName: DialogueTrigger, Assembly-CSharp
-        m_MethodName: TriggerDialogue
-        m_Mode: 1
+      - m_Target: {fileID: 1197695378989464388}
+        m_TargetAssemblyTypeName: ShowText, Assembly-CSharp
+        m_MethodName: showText
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1019,20 +1013,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!136 &568819866
-CapsuleCollider:
+--- !u!114 &1197695378989464388
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2807468466017597019}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.2454183
-  m_Height: 1.9624248
-  m_Direction: 1
-  m_Center: {x: 0.020000122, y: 0.8939605, z: -0.075239316}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb61a7a88c935f47adfbd638c95ce3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - BOEEEEEEEEREEEEEEE
+  textcomponent: {fileID: 0}
 --- !u!136 &6577301970014945460
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1047,68 +1042,6 @@ CapsuleCollider:
   m_Height: 1.9624248
   m_Direction: 1
   m_Center: {x: 0.020000122, y: 0.8939605, z: -0.075239316}
---- !u!136 &7414433339142030855
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2807468466017597019}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &568819862
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2807468466017597019}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 027f00c86c565a44f865fc7c749b99e5, type: 3}
-  m_Controller: {fileID: 9100000, guid: a9f4684267dcf00478408d1bc414ebfc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &568819864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2807468466017597019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35b4b1e11ed2a5f44909e5146657e2aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &568819867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2807468466017597019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0f46aa36ae6abe46be1f46729f9a24a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    name: 
-    sentences:
-    - Hi
 --- !u!1 &2831820301433007503
 GameObject:
   m_ObjectHideFlags: 0
