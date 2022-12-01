@@ -43,13 +43,7 @@ public class MemoryMinigame : MonoBehaviour
     {
         if (activated) return;
 
-        ResetButtons();
-        activated = true;
-        finished = false;
-        lost = false;
-        waiting = true;
-        pressedButtons.Clear();
-        correctButtons.Clear();
+        ResetGame();
         for (int i = 0; i < 4; i++)
         {
             correctButtons.Add(Random.Range(0, 15));
@@ -144,8 +138,8 @@ public class MemoryMinigame : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         cg.alpha = 0;
         playerLook.AllowLookInput = true;
-        activated = false;
         doorCollider.enabled = false;
+        EndGame();
     }
 
     /// <summary>
@@ -173,10 +167,21 @@ public class MemoryMinigame : MonoBehaviour
         cg.alpha = 0;
         playerLook.AllowLookInput = true;
         activated = false;
+        EndGame();
     }
 
-    public void ResetButtons()
+    private void EndGame()
     {
+        finished = false;
+        lost = false;
+        waiting = true;
+        pressedButtons.Clear();
+        correctButtons.Clear();
+    }
+
+    public void ResetGame()
+    {
+        activated = true;
         foreach (Image btn in buttons)
         {
             btn.color = Color.white;
