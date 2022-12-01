@@ -16,13 +16,11 @@ public class ValveManager : MonoBehaviour
     public void RemoveValve()
     {
         valves--;
-        print("remove");
         CheckValves();
     }
 
     private void CheckValves()
     {
-        print(valves);
         if(valves >= 3)
         {
             EnoughValves.Invoke();

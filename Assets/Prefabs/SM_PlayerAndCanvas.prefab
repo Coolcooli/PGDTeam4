@@ -40,6 +40,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2774526010549818408}
     m_Modifications:
+    - target: {fileID: 264427449239939327, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+        type: 3}
+      propertyPath: oxygenBar
+      value: 
+      objectReference: {fileID: 7334849585877098437}
     - target: {fileID: 1355036789072795770, guid: 50d766ebad5c2df4ca1b0d3068805a91,
         type: 3}
       propertyPath: m_Name
@@ -171,6 +176,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813589519868378814, guid: d41b8e457077ee544be913bf09a61c1e,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1813589519868378815, guid: d41b8e457077ee544be913bf09a61c1e,
         type: 3}
@@ -304,3 +314,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 8998672375260397277}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7334849585877098437 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1813589518971052312, guid: d41b8e457077ee544be913bf09a61c1e,
+    type: 3}
+  m_PrefabInstance: {fileID: 8998672375260397277}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
