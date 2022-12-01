@@ -10,8 +10,8 @@ public class Attack : MonoBehaviour
     private Transform target;
     [SerializeField]
     private Transform startLocation;
-
-    private WaypointSystem waypointSystem;
+    [SerializeField]
+    private Transform afterKillLocation;
 
     private bool isAttacking = false;
 
@@ -20,47 +20,33 @@ public class Attack : MonoBehaviour
 
     private void Awake()
     {
-        waypointSystem = GetComponent<WaypointSystem>();
         skinnedMeshes.AddRange(GetComponentsInChildren<SkinnedMeshRenderer>());
         transform.position = startLocation.position;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
+        if (!isAttacking) return;
+
+        transform.position = Vector3.MoveTowards(transform.position, target.position, 1f);
+        transform.LookAt(target);
         CheckTargetDistance();
-    }
-
-    public void AttackTarget(Transform target)
-    {
-        waypointSystem.SetWaypoint(target);
-        waypointSystem.MovementSpeed = 70f;
-
-        isAttacking = true;
     }
 
     public void AttackCaptain()
     {
-        print("attack");
         foreach (SkinnedMeshRenderer mesh in skinnedMeshes)
             mesh.enabled = true;
-        AttackTarget(target);
-        transform.LookAt(target);
-        hasKilledTarget.AddListener(DisableObject);
+        isAttacking = true;
     }
 
     private void CheckTargetDistance()
     {
-        if (!isAttacking) return;
-
-        if (Vector3.Distance(transform.position, waypointSystem.CurrentTarget.transform.position) < 1)
+        if (Vector3.Distance(transform.position, target.position) < 1)
         {
             Destroy(target);
             hasKilledTarget.Invoke();
+            target = afterKillLocation;
         }
-    }
-
-    private void DisableObject()
-    {
-        Destroy(gameObject);
     }
 }
