@@ -5,8 +5,9 @@ using UnityEngine.Events;
 
 public class ValveManager : MonoBehaviour
 {
-    public UnityEvent EnoughValves;
+    public UnityEvent enoughValves;
     private int valves = 0;
+
     public void AddValve()
     {
         valves++;
@@ -23,7 +24,7 @@ public class ValveManager : MonoBehaviour
     {
         if(valves >= 3)
         {
-            EnoughValves.Invoke();
+            enoughValves.Invoke();
         }
     }
 }
