@@ -3106,7 +3106,6 @@ GameObject:
   - component: {fileID: 5421970}
   - component: {fileID: 13685070}
   - component: {fileID: 11419034}
-  - component: {fileID: 11441884}
   m_Layer: 0
   m_Name: NewIguana
   m_TagString: Untagged
@@ -3123,7 +3122,7 @@ Transform:
   m_GameObject: {fileID: 190946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.3511, y: 3.3511, z: 3.3511}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 481976}
@@ -3191,18 +3190,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72e50913e7e62424fb84769094f5645f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11441884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 190946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7fec05d8fe384476bbdcb7f8aafd325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &193666
