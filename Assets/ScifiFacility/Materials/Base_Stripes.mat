@@ -108,7 +108,7 @@ Material:
     - _ReceivesSSR: 1
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
-    - _ScratchesAmount: 0.1
+    - _ScratchesAmount: 0.915
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -130,7 +130,7 @@ Material:
     - _TransparentZWrite: 1
     - _UVSec: 0
     - _UseShadowThreshold: 0
-    - _WearAmount: 0.08
+    - _WearAmount: 0.769
     - _WearLevel: 0.391
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 3
