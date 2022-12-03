@@ -22,7 +22,8 @@ public class PlayerInteract : MonoBehaviour
     public void Interact()
     {
         RaycastHit hit;
-        if(Physics.Raycast(cam.position, cam.forward, out hit, InteractRange)){
+        if (Physics.Raycast(cam.position, cam.forward, out hit, InteractRange))
+        {
             hit.collider.GetComponent<IInteract>()?.OnInteract();
 
             Pickupable pickup = hit.collider.GetComponent<Pickupable>();
@@ -32,7 +33,7 @@ public class PlayerInteract : MonoBehaviour
             }
 
             LockedDoor door = hit.collider.GetComponent<LockedDoor>();
-            if(door != null)
+            if (door != null)
             {
                 if (door.Interaction(inventory.Holding))
                 {
@@ -43,7 +44,7 @@ public class PlayerInteract : MonoBehaviour
             ToPlace placeable = hit.collider.GetComponent<ToPlace>();
             if (placeable != null)
             {
-                if(placeable.Interaction(inventory.Holding))
+                if (placeable.Interaction(inventory.Holding))
                 {
                     Pickupable item = inventory.Holding;
                     inventory.Drop();

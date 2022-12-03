@@ -5,8 +5,8 @@ using UnityEngine.Events;
 
 public class DialogeTrigger : MonoBehaviour
 {
-    public UnityEvent<Dialoge> onDialogeTrigger;
-    private Dialoges dialoges;
+    public UnityEvent<int> onDialogeTrigger;
+    //private Dialoges dialoges;
     [SerializeField]
     private DialogeManager dialogeManager;
     public int index;
@@ -15,7 +15,6 @@ public class DialogeTrigger : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Dialoge dialoge = dialogeManager.dialoges[index];
-        onDialogeTrigger.Invoke(dialoge);
+        onDialogeTrigger.Invoke(index);
     }
 }

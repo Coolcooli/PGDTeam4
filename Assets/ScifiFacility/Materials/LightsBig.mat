@@ -309,7 +309,7 @@ Material:
     - _TransparentZWrite: 0
     - _UVBase: 3
     - _UVDetail: 0
-    - _UVEmissive: 1
+    - _UVEmissive: 3
     - _UVSec: 0
     - _UseEmissiveIntensity: 1
     - _UseShadowThreshold: 0
@@ -334,5 +334,5 @@ Material:
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 0, g: 0, b: 0, a: 1}
-    - _UVMappingMaskEmissive: {r: 0, g: 1, b: 0, a: 0}
+    - _UVMappingMaskEmissive: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

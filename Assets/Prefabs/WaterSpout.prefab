@@ -76,6 +76,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  canBeActivated: 1
+  duration: 5
+  particleSystem: {fileID: 164731470711710618}
 --- !u!1 &8798844052577344737
 GameObject:
   m_ObjectHideFlags: 0
