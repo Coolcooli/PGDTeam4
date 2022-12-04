@@ -348,6 +348,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2774526010549818408}
     m_Modifications:
+    - target: {fileID: -4291073222759767421, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+        type: 3}
+      propertyPath: mouseSensitivity
+      value: 4.55
+      objectReference: {fileID: 0}
     - target: {fileID: 1355036789072795770, guid: 50d766ebad5c2df4ca1b0d3068805a91,
         type: 3}
       propertyPath: m_Name
@@ -366,7 +371,7 @@ PrefabInstance:
     - target: {fileID: 1355036789072795771, guid: 50d766ebad5c2df4ca1b0d3068805a91,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 7.27
       objectReference: {fileID: 0}
     - target: {fileID: 1355036789072795771, guid: 50d766ebad5c2df4ca1b0d3068805a91,
         type: 3}
@@ -470,6 +475,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 3215207812817053357}
+    - target: {fileID: 1813589519296117754, guid: d41b8e457077ee544be913bf09a61c1e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1813589519868378755, guid: d41b8e457077ee544be913bf09a61c1e,
         type: 3}
       propertyPath: m_Name
