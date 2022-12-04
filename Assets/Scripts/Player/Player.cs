@@ -14,6 +14,9 @@ public class Player : MonoBehaviour
     private bool isInWater = true;
     public bool IsInWater { get { return isInWater; } }
 
+    [SerializeField] private AudioSource waterEnter;
+    [SerializeField] private AudioSource waterExit;
+
     private void Awake()
     {
         Cursor.visible = false;
@@ -41,9 +44,13 @@ public class Player : MonoBehaviour
         {
             case "Air":
                 isInWater = false;
+                waterExit.Play();
+                Debug.Log("enter");
                 break;
             case "Water":
                 isInWater = true;
+                waterEnter.Play();
+                Debug.Log("exit");
                 break;
         }
     }
