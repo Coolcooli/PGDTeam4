@@ -21,6 +21,7 @@ public class PlayerOxygen : MonoBehaviour
 
     [SerializeField]
     private Image oxygenBar;
+    [SerializeField] private AudioSource drownSound;
 
     private void Awake()
     {
@@ -42,6 +43,7 @@ public class PlayerOxygen : MonoBehaviour
         }
         else if (oxygen < maxOxygen)
         {
+            drownSound.Stop();
             oxygen += oxygenRegen * Time.deltaTime;
 
         }
@@ -56,6 +58,8 @@ public class PlayerOxygen : MonoBehaviour
             oxygen = maxOxygen;
         }
 
+        if(oxygen < maxOxygen / 5 && !drownSound.isPlaying)
+            drownSound.Play();
         oxygenBar.fillAmount = (oxygen / maxOxygen);
     }
 }

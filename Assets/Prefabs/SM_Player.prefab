@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad6d82fc96661245a7e0931e0f9032c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInWater: 0
+  isInWater: 1
 --- !u!143 &1355036789072795761
 CharacterController:
   m_ObjectHideFlags: 0
@@ -340,6 +340,7 @@ MonoBehaviour:
   oxygenCost: 1
   oxygenRegen: 3
   oxygenBar: {fileID: 0}
+  drownSound: {fileID: 0}
 --- !u!1 &1355036789228639544
 GameObject:
   m_ObjectHideFlags: 0
