@@ -14,8 +14,7 @@ public class Player : MonoBehaviour
     private bool isInWater = true;
     public bool IsInWater { get { return isInWater; } }
 
-    [SerializeField] private AudioSource waterEnter;
-    [SerializeField] private AudioSource waterExit;
+    private SoundManager sm;
 
     private void Awake()
     {
@@ -27,6 +26,8 @@ public class Player : MonoBehaviour
         states = new PlayerStateFactory(this, movement);
         currentState = movement.IsGrounded ? states.Grounded() : states.Jump();
         currentState.EnterState();
+
+        sm = GetComponent<SoundManager>();
     }
 
     void Update()
@@ -44,12 +45,14 @@ public class Player : MonoBehaviour
         {
             case "Air":
                 isInWater = false;
-                waterExit.Play();
+                sm.Play("waterExit");
+                sm.Stop("inWater");
                 Debug.Log("enter");
                 break;
             case "Water":
                 isInWater = true;
-                waterEnter.Play();
+                sm.Play("waterEnter");
+                sm.Play("inWater");
                 Debug.Log("exit");
                 break;
         }

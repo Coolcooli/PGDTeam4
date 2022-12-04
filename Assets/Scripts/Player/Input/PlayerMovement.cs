@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isMoving = false;
     public bool IsMoving => isMoving;
+    [SerializeField] private AudioSource movementSound;
+    [SerializeField] private AudioSource swimSound;
     private bool isSprinting = false;
     private float sprintMultiplier = 1f;
     public float SprintMultiplier { set { sprintMultiplier = value; } }
@@ -46,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         player = GetComponent<Player>();
         playerCamera = Camera.main;
+        movementSound.gameObject.SetActive(false);
+        swimSound.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -81,10 +85,18 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         Vector2 input = context.ReadValue<Vector2>();
-        if (input.magnitude > 0)
+        if (input.magnitude > 0){
             isMoving = true;
-        else
+            if(player.IsInWater)
+                swimSound.gameObject.SetActive(true);
+            else
+                movementSound.gameObject.SetActive(true);
+        }
+        else{
             isMoving = false;
+            movementSound.gameObject.SetActive(false);
+            swimSound.gameObject.SetActive(false);
+        }
         movementDirection = new Vector3(input.x, 0, input.y);
     }
 

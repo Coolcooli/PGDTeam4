@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6669.2207, g: 6607.4307, b: 6538.2285, a: 1}
+  m_IndirectSpecularColor: {r: 6668.884, g: 6607.392, b: 6538.2, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -46869,6 +46869,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3215207812817053357, guid: 24ae2753e0ab69e4dbb49f614dc7661c,
+        type: 3}
+      propertyPath: underWater
+      value: 
+      objectReference: {fileID: 1818463336}
     - target: {fileID: 6809164896286293067, guid: 24ae2753e0ab69e4dbb49f614dc7661c,
         type: 3}
       propertyPath: m_RootOrder
@@ -97677,6 +97682,12 @@ Transform:
   m_Father: {fileID: 1714348508}
   m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1818463336 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7695235996218769107, guid: 24ae2753e0ab69e4dbb49f614dc7661c,
+    type: 3}
+  m_PrefabInstance: {fileID: 905756219}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &1819199010
 MeshRenderer:
   m_ObjectHideFlags: 0
