@@ -2,38 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door_01 : MonoBehaviour
+public class Door_01 : BaseDoor
 {
-    [SerializeField]
-    private Animation WingLeft;
-    [SerializeField]
-    private Animation WingRight;
-
-    void OnTriggerEnter(Collider c)
+    protected override void OpenDoor(Collider c)
     {
-        if (c.tag.Equals("Player"))
-        {
-            GetComponent<AudioSource>().Play();
+        base.OpenDoor(c);
 
-            WingLeft["door_01_wing_left"].speed = 1;
-            WingRight["door_01_wing_right"].speed = 1;
-            WingLeft.Play();
-            WingRight.Play();
-        }
+        wings[0]["door_01_wing_left"].speed = 1;
+        wings[1]["door_01_wing_right"].speed = 1;
+        wings[0].Play();
+        wings[1].Play();
     }
-
-    void OnTriggerExit(Collider c)
+    protected override void CloseDoor(Collider c)
     {
-        if (c.tag.Equals("Player"))
-        {
-            GetComponent<AudioSource>().Play();
+        base.CloseDoor(c);
 
-            WingLeft["door_01_wing_left"].time = WingLeft["door_01_wing_left"].length;
-            WingRight["door_01_wing_right"].time = WingRight["door_01_wing_right"].length;
-            WingLeft["door_01_wing_left"].speed = -1;
-            WingRight["door_01_wing_right"].speed = -1;
-            WingLeft.Play();
-            WingRight.Play();
-        }
+        wings[0]["door_01_wing_left"].time = wings[0]["door_01_wing_left"].length;
+        wings[1]["door_01_wing_right"].time = wings[1]["door_01_wing_right"].length;
+        wings[0]["door_01_wing_left"].speed = -1;
+        wings[1]["door_01_wing_right"].speed = -1;
+        wings[0].Play();
+        wings[1].Play();
     }
 }

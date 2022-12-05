@@ -904,7 +904,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2b866f8bd87437c458e5af72b7d659a3, type: 2}
+  - {fileID: 2100000, guid: 53efc9d0abb597f4480426be6110ecaa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2013,7 +2013,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2065,7 +2065,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c07e84d736c421446b88894057b9a1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Wing: {fileID: 0}
+  wings: []
+  isLocked: 0
+  doorSound: {fileID: 82283425256389758}
 --- !u!1 &1568722113276864
 GameObject:
   m_ObjectHideFlags: 0
@@ -2793,7 +2795,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2b866f8bd87437c458e5af72b7d659a3, type: 2}
+  - {fileID: 2100000, guid: 53efc9d0abb597f4480426be6110ecaa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -68,8 +68,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d467c52e9389ec4fbcb1e19688607c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WingLeft: {fileID: 5163816439460766263}
-  WingRight: {fileID: 5163816438596452195}
+  wings:
+  - {fileID: 5163816439460766263}
+  - {fileID: 5163816438596452195}
+  isLocked: 1
+  doorSound: {fileID: 5163816438217321995}
 --- !u!82 &5163816438217321995
 AudioSource:
   m_ObjectHideFlags: 0
@@ -126,7 +129,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
