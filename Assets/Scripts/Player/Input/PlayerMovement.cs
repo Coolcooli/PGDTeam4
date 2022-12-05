@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 velocity;
     public Vector3 Velocity { get { return velocity; } set { velocity = value; } }
-    public float Gravity { get { return .3f; } }
+    public float Gravity { get { return 30f; } }
     public bool IsGrounded => characterController.isGrounded;
 
     [SerializeField]

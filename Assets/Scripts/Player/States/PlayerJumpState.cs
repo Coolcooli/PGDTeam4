@@ -37,6 +37,6 @@ public class PlayerJumpState : PlayerBaseState
     private void HandleGravity()
     {
         // Apply gravity to the context
-        Movement.Velocity -= new Vector3(0, Movement.Gravity, 0);
+        Movement.Velocity -= new Vector3(0, Movement.Gravity, 0) * Time.deltaTime;
     }
 }
