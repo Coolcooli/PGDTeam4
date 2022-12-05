@@ -4,7 +4,8 @@ using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(Spline))]
-public class SplineEditor : Editor {
+public class SplineEditor : Editor
+{
 
     private const int QUAD_SIZE = 12;
     private Color CURVE_COLOR = new Color(0.8f, 0.8f, 0.8f);
@@ -12,7 +13,8 @@ public class SplineEditor : Editor {
     private Color DIRECTION_COLOR = Color.red;
     private Color DIRECTION_BUTTON_COLOR = Color.red;
 
-    private enum SelectionType {
+    private enum SelectionType
+    {
         Node,
         Direction,
         InverseDirection
@@ -26,7 +28,8 @@ public class SplineEditor : Editor {
 
     private GUIStyle nodeButtonStyle, directionButtonStyle;
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         spline = (Spline)target;
         nodes = serializedObject.FindProperty("nodes");
 
@@ -43,12 +46,16 @@ public class SplineEditor : Editor {
         directionButtonStyle.normal.background = t;
     }
 
-    SplineNode AddClonedNode(SplineNode node) {
+    SplineNode AddClonedNode(SplineNode node)
+    {
         int index = spline.nodes.IndexOf(node);
         SplineNode res = new SplineNode(node.position, node.direction);
-        if (index == spline.nodes.Count - 1) {
+        if (index == spline.nodes.Count - 1)
+        {
             spline.AddNode(res);
-        } else {
+        }
+        else
+        {
             spline.InsertNode(index + 1, res);
         }
         return res;
@@ -67,7 +74,8 @@ public class SplineEditor : Editor {
         {
             Undo.RegisterCompleteObjectUndo(spline, "change spline topography");
             // if alt key pressed, we will have to create a new node if node position is changed
-            if (e.alt) {
+            if (e.capsLock)
+            {
                 mustCreateNewNode = true;
             }
         }
@@ -77,14 +85,16 @@ public class SplineEditor : Editor {
         }
 
         // disable game object transform gyzmo
-        if (Selection.activeGameObject == spline.gameObject) {
+        if (Selection.activeGameObject == spline.gameObject)
+        {
             Tools.current = Tool.None;
             if (selection == null && spline.nodes.Count > 0)
                 selection = spline.nodes[0];
         }
 
         // draw a bezier curve for each curve in the spline
-        foreach (CubicBezierCurve curve in spline.GetCurves()) {
+        foreach (CubicBezierCurve curve in spline.GetCurves())
+        {
             Handles.DrawBezier(spline.transform.TransformPoint(curve.n1.position),
                 spline.transform.TransformPoint(curve.n2.position),
                 spline.transform.TransformPoint(curve.n1.direction),
@@ -95,18 +105,23 @@ public class SplineEditor : Editor {
         }
 
         // draw the selection handles
-        switch (selectionType) {
+        switch (selectionType)
+        {
             case SelectionType.Node:
                 // place a handle on the node and manage position change
                 Vector3 newPosition = spline.transform.InverseTransformPoint(Handles.PositionHandle(spline.transform.TransformPoint(selection.position), Quaternion.identity));
-                if (newPosition != selection.position) {
+                if (newPosition != selection.position)
+                {
                     // position handle has been moved
-                    if (mustCreateNewNode) {
+                    if (mustCreateNewNode)
+                    {
                         mustCreateNewNode = false;
                         selection = AddClonedNode(selection);
                         selection.SetDirection(selection.direction + newPosition - selection.position);
                         selection.SetPosition(newPosition);
-                    } else {
+                    }
+                    else
+                    {
                         selection.SetDirection(selection.direction + newPosition - selection.position);
                         selection.SetPosition(newPosition);
                     }
@@ -125,7 +140,8 @@ public class SplineEditor : Editor {
         foreach (SplineNode n in spline.nodes)
         {
             Vector3 guiPos = HandleUtility.WorldToGUIPoint(spline.transform.TransformPoint(n.position));
-            if (n == selection) {
+            if (n == selection)
+            {
                 Vector3 guiDir = HandleUtility.WorldToGUIPoint(spline.transform.TransformPoint(n.direction));
                 Vector3 guiInvDir = HandleUtility.WorldToGUIPoint(spline.transform.TransformPoint(2 * n.position - n.direction));
 
@@ -134,23 +150,32 @@ public class SplineEditor : Editor {
                 Handles.DrawLine(guiDir, guiInvDir);
 
                 // draw quads direction and inverse direction if they are not selected
-                if (selectionType != SelectionType.Node) {
-                    if (Button(guiPos, directionButtonStyle)) {
+                if (selectionType != SelectionType.Node)
+                {
+                    if (Button(guiPos, directionButtonStyle))
+                    {
                         selectionType = SelectionType.Node;
                     }
                 }
-                if (selectionType != SelectionType.Direction) {
-                    if (Button(guiDir, directionButtonStyle)) {
+                if (selectionType != SelectionType.Direction)
+                {
+                    if (Button(guiDir, directionButtonStyle))
+                    {
                         selectionType = SelectionType.Direction;
                     }
                 }
-                if (selectionType != SelectionType.InverseDirection) {
-                    if (Button(guiInvDir, directionButtonStyle)) {
+                if (selectionType != SelectionType.InverseDirection)
+                {
+                    if (Button(guiInvDir, directionButtonStyle))
+                    {
                         selectionType = SelectionType.InverseDirection;
                     }
                 }
-            } else {
-                if (Button(guiPos, nodeButtonStyle)) {
+            }
+            else
+            {
+                if (Button(guiPos, nodeButtonStyle))
+                {
                     selection = n;
                     selectionType = SelectionType.Node;
                 }
@@ -162,20 +187,24 @@ public class SplineEditor : Editor {
             EditorUtility.SetDirty(target);
     }
 
-    bool Button(Vector2 position, GUIStyle style) {
+    bool Button(Vector2 position, GUIStyle style)
+    {
         return GUI.Button(new Rect(position - new Vector2(QUAD_SIZE / 2, QUAD_SIZE / 2), new Vector2(QUAD_SIZE, QUAD_SIZE)), GUIContent.none, style);
     }
 
-    public override void OnInspectorGUI() {
+    public override void OnInspectorGUI()
+    {
         serializedObject.Update();
         // hint
         EditorGUILayout.HelpBox("Hold Alt and drag a node to create a new one.", MessageType.Info);
 
         // delete button
-        if(selection == null || spline.nodes.Count <= 2) {
+        if (selection == null || spline.nodes.Count <= 2)
+        {
             GUI.enabled = false;
         }
-        if (GUILayout.Button("Delete selected node")) {
+        if (GUILayout.Button("Delete selected node"))
+        {
             Undo.RegisterCompleteObjectUndo(spline, "delete spline node");
             DeleteNode(selection);
             selection = null;
@@ -187,8 +216,10 @@ public class SplineEditor : Editor {
         // But I can't understand why these guys are not editable in the inspector...
         EditorGUILayout.PropertyField(nodes);
         EditorGUI.indentLevel += 1;
-        if (nodes.isExpanded) {
-            for (int i = 0; i < nodes.arraySize; i++) {
+        if (nodes.isExpanded)
+        {
+            for (int i = 0; i < nodes.arraySize; i++)
+            {
                 EditorGUILayout.PropertyField(nodes.GetArrayElementAtIndex(i), new GUIContent("Node " + i), true);
             }
         }
@@ -198,7 +229,8 @@ public class SplineEditor : Editor {
     }
 
     [MenuItem("GameObject/3D Object/Spline")]
-    public static void CreateSpline() {
+    public static void CreateSpline()
+    {
         new GameObject("Spline", typeof(Spline));
     }
 }

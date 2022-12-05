@@ -8,7 +8,8 @@ public class PushObject : MonoBehaviour
     private CharacterController player;
     private const float objStrength = 800f;
     private const float playerStrength = 8f;
-    private const float maxVelocity = 3f;
+    [SerializeField]
+    private float maxVelocity = 4f;
 
     [SerializeField]
     private bool isActive = false;
