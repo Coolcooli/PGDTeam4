@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class ScreenLocationRemapper : MonoBehaviour
 {
     [SerializeField] private Transform targetObject;
@@ -9,10 +10,15 @@ public class ScreenLocationRemapper : MonoBehaviour
     private const float minValue = -.71f;
     private const float maxValue = .71f;
 
-    private const float maxX = 200;
-    private const float maxZ = 200;
+    private const float maxX = 100;
+    private const float maxZ = 100;
 
     private void FixedUpdate()
+    {
+        RemapMonsterLocation();
+    }
+
+    private void Update()
     {
         RemapMonsterLocation();
     }
