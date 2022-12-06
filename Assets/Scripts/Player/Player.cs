@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private bool isInWater = true;
     public bool IsInWater { get { return isInWater; } }
+    private int currentAirColliders;
 
     private void Awake()
     {
@@ -41,9 +42,19 @@ public class Player : MonoBehaviour
         {
             case "Air":
                 isInWater = false;
+                currentAirColliders++;
                 break;
-            case "Water":
-                isInWater = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        switch (other.tag)
+        {
+            case "Air":
+                currentAirColliders--;
+                if (currentAirColliders <= 0)
+                    isInWater = true;
                 break;
         }
     }
