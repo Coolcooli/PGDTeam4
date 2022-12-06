@@ -419,7 +419,7 @@ GameObject:
   - component: {fileID: 6858314217860721095}
   - component: {fileID: 6858314217860721094}
   - component: {fileID: 6858314217860721089}
-  - component: {fileID: 6858314217860721092}
+  - component: {fileID: 1448059412570282888}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -530,19 +530,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6858314217860721092}
-        m_TargetAssemblyTypeName: ExitGame, Assembly-CSharp
-        m_MethodName: Exit
-        m_Mode: 1
+      - m_Target: {fileID: 1448059412570282888}
+        m_TargetAssemblyTypeName: SwitchScene, Assembly-CSharp
+        m_MethodName: SwitchTo
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6858314217860721092
+--- !u!114 &1448059412570282888
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -551,7 +551,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6858314217860721091}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d515847c9579e54dadcfb021596bafe, type: 3}
+  m_Script: {fileID: 11500000, guid: b399bcc1e0bc44d43a2d410b3c70ba19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6858314218191416198
