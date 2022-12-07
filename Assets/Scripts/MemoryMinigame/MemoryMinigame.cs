@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class MemoryMinigame : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class MemoryMinigame : MonoBehaviour
 
     [SerializeField]
     private PlayerLookInput playerLook;
+
+    public UnityEvent<int> onDialogeTrigger;
 
     /// <summary>
     /// Get number of clicked button
@@ -134,9 +137,12 @@ public class MemoryMinigame : MonoBehaviour
     public void GameWon()
     {
         //TODO: Exit minigame
+       
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         cg.alpha = 0;
+        onDialogeTrigger.Invoke(2);
+        Debug.Log("gamewon");
         playerLook.AllowLookInput = true;
         doorCollider.enabled = false;
     }
@@ -162,9 +168,12 @@ public class MemoryMinigame : MonoBehaviour
     public void GameLost()
     {
         //TODO: Exit minigame
+        
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         cg.alpha = 0;
+        onDialogeTrigger.Invoke(1);
+        Debug.Log("gameloSt");
         playerLook.AllowLookInput = true;
         activated = false;
     }

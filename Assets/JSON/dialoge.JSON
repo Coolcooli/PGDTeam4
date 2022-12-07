@@ -2,13 +2,18 @@
   "dialoges": [
     {
       "index": 0,
-      "name": "Me",
-      "sentences": [ "test1", "test2", "test3" ]
+      "name": "Captain",
+      "sentences": [ "The key is in the engine room" ]
     },
     {
       "index": 1,
-      "name": "Captain",
-      "sentences": [ "the key is in the engine room"]
+      "name": "Me",
+      "sentences": [ "Dammit wrong code, i should try again" ]
+    },
+    {
+      "index": 2,
+      "name": "Me",
+      "sentences": [ "Okay nice, the room is now open" ]
     }
   ]
 }
