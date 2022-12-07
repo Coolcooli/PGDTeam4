@@ -122,8 +122,8 @@ public class MemoryMinigame : MonoBehaviour
         {
             buttons[btn].color = Color.green;
         }
-
-        yield return new WaitForSeconds(5);
+        EndGame();
+        yield return new WaitForSeconds(2f);
 
         GameWon();
     }
@@ -139,7 +139,6 @@ public class MemoryMinigame : MonoBehaviour
         cg.alpha = 0;
         playerLook.AllowLookInput = true;
         doorCollider.enabled = false;
-        EndGame();
     }
 
     /// <summary>
@@ -152,7 +151,8 @@ public class MemoryMinigame : MonoBehaviour
         {
             buttons[btn].color = Color.red;
         }
-        yield return new WaitForSeconds(3);
+        EndGame();
+        yield return new WaitForSeconds(2f);
         GameLost();
     }
 
@@ -167,7 +167,6 @@ public class MemoryMinigame : MonoBehaviour
         cg.alpha = 0;
         playerLook.AllowLookInput = true;
         activated = false;
-        EndGame();
     }
 
     private void EndGame()
