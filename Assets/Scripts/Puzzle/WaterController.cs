@@ -50,7 +50,6 @@ public class WaterController : MonoBehaviour
         {
             GameObject prefab = Resources.Load<GameObject>("Outpost1/AirColliderRoom" + i);
             Instantiate(prefab);
-
         }
         Destroy(gameObject);
     }
