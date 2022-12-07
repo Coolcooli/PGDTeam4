@@ -12,7 +12,7 @@ public abstract class PlayerBaseState
     protected bool IsRootState { set { isRootState = value; } }
     protected Player Context { get { return context; } }
     protected PlayerMovement Movement { get { return movement; } }
-    protected PlayerStateFactory Factory { get { return factory; } }
+    public PlayerStateFactory Factory { get { return factory; } }
 
     public PlayerBaseState(Player context, PlayerStateFactory factory, PlayerMovement movement)
     {
@@ -47,7 +47,7 @@ public abstract class PlayerBaseState
     // Executes the EnterState of the 'old' state, then runs the ExitState of the new state
     // Furthermore it checks if the state is a root (top of the state hierarchy)
     // Finally it checks if there is a super state, if there isn't one it will set the substate to the new state
-    protected void SwitchState(PlayerBaseState newState)
+    public void SwitchState(PlayerBaseState newState)
     {
         ExitState();
 

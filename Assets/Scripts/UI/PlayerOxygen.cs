@@ -29,10 +29,10 @@ public class PlayerOxygen : MonoBehaviour
 
     public void Update()
     {
-        updateOxygen(player.IsInWater);
+        UpdateOxygen(player.IsInWater);
     }
 
-    public void updateOxygen(bool inWater)
+    public void UpdateOxygen(bool inWater)
     {
         if (oxygenBar == null) return;
 
@@ -43,7 +43,6 @@ public class PlayerOxygen : MonoBehaviour
         else if (oxygen < maxOxygen)
         {
             oxygen += oxygenRegen * Time.deltaTime;
-
         }
 
         if (oxygen < minOxygen)

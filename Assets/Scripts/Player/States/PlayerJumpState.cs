@@ -9,7 +9,7 @@ public class PlayerJumpState : PlayerBaseState
 
     public override void EnterState()
     {
-        if (Movement.IsJumpPressed)
+        if (Movement.IsJumpPressed && Movement.IsGrounded)
         {
             Movement.Velocity = new Vector3(0, Movement.JumpForce, 0); // Add the jump force to the velocity
             Movement.IsJumpPressed = false;
@@ -27,11 +27,6 @@ public class PlayerJumpState : PlayerBaseState
             SwitchState(Factory.Grounded());
         if (Context.IsInWater)
             SwitchState(Factory.InWater());
-    }
-
-    public override void ExitState()
-    {
-        Movement.Velocity = Vector3.zero;
     }
 
     private void HandleGravity()

@@ -24,8 +24,16 @@ public class PlayerInWaterState : PlayerBaseState
         }
     }
 
+    public override void ExitState()
+    {
+        Movement.Velocity = Vector3.zero;
+    }
+
     public override void CheckSwitchStates()
     {
+        if (Context.CurrentWaterColliders > 0 && Context.CurrentAirColliders > 0)
+            SwitchState(Factory.Floating());
+
         if (!Context.IsInWater)
         {
             if (Movement.IsGrounded)

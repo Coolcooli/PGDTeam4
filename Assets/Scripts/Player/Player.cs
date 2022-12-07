@@ -12,8 +12,11 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private bool isInWater = true;
-    public bool IsInWater { get { return isInWater; } }
+    public bool IsInWater { get { return isInWater; } set { isInWater = value; } }
     private int currentAirColliders;
+    public int CurrentAirColliders => currentAirColliders;
+    private int currentWaterColliders;
+    public int CurrentWaterColliders => currentWaterColliders;
 
     private void Awake()
     {
@@ -21,7 +24,6 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         PlayerMovement movement = GetComponent<PlayerMovement>();
-
         states = new PlayerStateFactory(this, movement);
         currentState = movement.IsGrounded ? states.Grounded() : states.Jump();
         currentState.EnterState();
@@ -41,8 +43,17 @@ public class Player : MonoBehaviour
         switch (other.tag)
         {
             case "Air":
+                if (currentWaterColliders > 0)
+                {
+                    currentAirColliders++;
+                    currentState.SwitchState(currentState.Factory.Floating());
+                    break;
+                }
                 isInWater = false;
                 currentAirColliders++;
+                break;
+            case "Water":
+                currentWaterColliders++;
                 break;
         }
     }
@@ -55,6 +66,9 @@ public class Player : MonoBehaviour
                 currentAirColliders--;
                 if (currentAirColliders <= 0)
                     isInWater = true;
+                break;
+            case "Water":
+                currentWaterColliders--;
                 break;
         }
     }
