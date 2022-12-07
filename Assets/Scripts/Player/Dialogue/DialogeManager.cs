@@ -41,7 +41,6 @@ public class DialogeManager : MonoBehaviour
     /// <param name="dialoge"></param>
     public void StartDialoge(int index)
     {
-        Debug.Log("dialoge");
         Dialoge dialoge = dialoges[index];
         sentences.Clear();
 
