@@ -25,6 +25,7 @@ public class PlayerLookInput : MonoBehaviour
     public void OnLook(InputAction.CallbackContext context)
     {
         if (!allowLookInput) return;
+
         Vector2 input = context.ReadValue<Vector2>();
         cameraRotation -= input.y * mouseSensitivity * Time.deltaTime;
 

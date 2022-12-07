@@ -144,6 +144,20 @@
             },
             "m_InputSlot": {
                 "m_Node": {
+                    "m_Id": "0f617147dba5444d8c767f8ac7b0ffaf"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "d786754e9f894bd995e7687f6ad37547"
+                },
+                "m_SlotId": 1
+            },
+            "m_InputSlot": {
+                "m_Node": {
                     "m_Id": "be37d78e15fe480f8a9d082320b2b0c2"
                 },
                 "m_SlotId": 0
@@ -166,8 +180,8 @@
     ],
     "m_VertexContext": {
         "m_Position": {
-            "x": 0.0,
-            "y": 0.0
+            "x": -546.0,
+            "y": -377.0000305175781
         },
         "m_Blocks": [
             {
@@ -183,8 +197,8 @@
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": 0.0,
-            "y": 200.0
+            "x": -546.0,
+            "y": -177.00001525878907
         },
         "m_Blocks": [
             {
@@ -1561,7 +1575,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"247e59869df3cf04a83abc2d18c8f581\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
         "m_Guid": ""
     },
     "isMainTexture": false,

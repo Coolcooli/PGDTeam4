@@ -8,13 +8,25 @@ public class PushObject : MonoBehaviour
     private CharacterController player;
     private const float objStrength = 800f;
     private const float playerStrength = 8f;
-    private const float maxVelocity = 20f;
+    [SerializeField]
+    private float maxVelocity = 4f;
 
     [SerializeField]
     private bool isActive = false;
+    [SerializeField]
+    private bool isEnabled = true;
 
     [SerializeField]
     private float duration = 5f;
+
+    [SerializeField]
+    new private ParticleSystem particleSystem;
+
+    private void Awake()
+    {
+        if (isActive && !isEnabled)
+            isActive = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -49,6 +61,7 @@ public class PushObject : MonoBehaviour
         if (player)
             player.Move(transform.forward * playerStrength * Time.deltaTime);
     }
+
     public void Deactivate()
     {
         isActive = false;
@@ -56,8 +69,21 @@ public class PushObject : MonoBehaviour
 
     public void Activate(bool endWithDuration = false)
     {
-        isActive = true;
+        if (!isEnabled) return;
+
+        Invoke("SetActive", .5f);
+        particleSystem.Play();
         if (endWithDuration)
             Invoke("Deactivate", duration);
+    }
+
+    private void SetActive()
+    {
+        isActive = true;
+    }
+
+    public void Enable()
+    {
+        isEnabled = true;
     }
 }

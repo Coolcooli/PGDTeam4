@@ -6,7 +6,6 @@ public class ActivateMemoryMinigame : MonoBehaviour
 {
     [SerializeField]
     private Canvas minigameCanvas;
-    private Canvas playerCanvas;
     [SerializeField]
     private MemoryMinigame memory;
     private CanvasGroup cg;
@@ -21,6 +20,5 @@ public class ActivateMemoryMinigame : MonoBehaviour
     {
         cg.alpha = 1;
         memory.StartMinigame();
-        Debug.Log("test");
     }
 }
