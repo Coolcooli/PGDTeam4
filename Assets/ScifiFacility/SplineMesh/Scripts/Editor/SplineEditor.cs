@@ -67,7 +67,7 @@ public class SplineEditor : Editor {
         {
             Undo.RegisterCompleteObjectUndo(spline, "change spline topography");
             // if alt key pressed, we will have to create a new node if node position is changed
-            if (e.alt) {
+            if (e.capsLock) {
                 mustCreateNewNode = true;
             }
         }
