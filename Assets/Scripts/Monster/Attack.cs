@@ -1,62 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class Attack : MonoBehaviour
 {
     [SerializeField]
-    float maxPlayerHeight = 100f;
-    [SerializeField]
     private Transform target;
-    public Transform Target { set { target = value; } }
-
-    private WaypointSystem waypointSystem;
+    [SerializeField]
+    private Transform startLocation;
+    [SerializeField]
+    private Transform afterKillLocation;
 
     private bool isAttacking = false;
-    private bool targetIsPlayer = false;
+
+    public UnityEvent hasKilledTarget;
+    private List<SkinnedMeshRenderer> skinnedMeshes = new List<SkinnedMeshRenderer>();
 
     private void Start()
     {
-        waypointSystem = GetComponent<WaypointSystem>();
+        skinnedMeshes.AddRange(GetComponentsInChildren<SkinnedMeshRenderer>());
+        transform.position = startLocation.position;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
+        if (!isAttacking) return;
+
+        transform.position = Vector3.MoveTowards(transform.position, target.position, 1f);
+        transform.LookAt(target);
         CheckTargetDistance();
-        CheckTargetHeight();
     }
 
-    private void CheckTargetHeight()
+    public void AttackCaptain()
     {
-        if (target.transform.position.y >= maxPlayerHeight)
-        {
-            AttackTarget(target.transform);
-        }
-    }
-
-    private void AttackTarget(Transform target)
-    {
-        waypointSystem.SetWaypoint(target);
-        waypointSystem.MovementSpeed = 70f;
-
+        foreach (SkinnedMeshRenderer mesh in skinnedMeshes)
+            mesh.enabled = true;
         isAttacking = true;
     }
 
     private void CheckTargetDistance()
     {
-        if (!isAttacking) return;
-
-        if (Vector3.Distance(transform.position, waypointSystem.CurrentTarget.transform.position) < 1)
+        if (Vector3.Distance(transform.position, target.position) < 1)
         {
-            if (targetIsPlayer)
-            {
-                SceneManager.LoadScene(1);
-            }
-            else
-            {
-                Destroy(target);
-            }
+            hasKilledTarget.Invoke();
+            target = afterKillLocation;
         }
     }
 }

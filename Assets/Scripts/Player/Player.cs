@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -9,8 +10,13 @@ public class Player : MonoBehaviour
 
     private PlayerStateFactory states;
 
+    [SerializeField]
     private bool isInWater = true;
-    public bool IsInWater { get { return isInWater; } }
+    public bool IsInWater { get { return isInWater; } set { isInWater = value; } }
+    private int currentAirColliders;
+    public int CurrentAirColliders => currentAirColliders;
+    private int currentWaterColliders;
+    public int CurrentWaterColliders => currentWaterColliders;
 
     private void Awake()
     {
@@ -18,7 +24,6 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         PlayerMovement movement = GetComponent<PlayerMovement>();
-
         states = new PlayerStateFactory(this, movement);
         currentState = movement.IsGrounded ? states.Grounded() : states.Jump();
         currentState.EnterState();
@@ -35,20 +40,36 @@ public class Player : MonoBehaviour
     /// <param name="other">The object that the player collides with</param>
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Air")
+        switch (other.tag)
         {
-            isInWater = false;
+            case "Air":
+                if (currentWaterColliders > 0)
+                {
+                    currentAirColliders++;
+                    currentState.SwitchState(currentState.Factory.Floating());
+                    break;
+                }
+                isInWater = false;
+                currentAirColliders++;
+                break;
+            case "Water":
+                currentWaterColliders++;
+                break;
         }
     }
-    /// <summary>
-    /// Checks if the player in exiting air
-    /// </summary>
-    /// <param name="other">The object that the player collides with</param>
+
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Air")
+        switch (other.tag)
         {
-            isInWater = true;
+            case "Air":
+                currentAirColliders--;
+                if (currentAirColliders <= 0)
+                    isInWater = true;
+                break;
+            case "Water":
+                currentWaterColliders--;
+                break;
         }
     }
 }

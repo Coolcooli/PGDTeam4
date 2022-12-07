@@ -7,17 +7,21 @@ public class MemoryMinigame : MonoBehaviour
 {
     [SerializeField]
     private Image[] buttons;
-    public CanvasGroup cg;
+    [SerializeField]
+    private CanvasGroup cg;
+    [SerializeField]
+    private BoxCollider doorCollider;
 
     private List<int> correctButtons = new List<int>();
-    public List<int> pressedButtons = new List<int>();
+    private List<int> pressedButtons = new List<int>();
 
     private bool waiting = true;
     private bool finished = false;
     private bool lost = false;
+    private bool activated = false;
 
     [SerializeField]
-    PlayerLookInput playerLook;
+    private PlayerLookInput playerLook;
 
     /// <summary>
     /// Get number of clicked button
@@ -37,6 +41,9 @@ public class MemoryMinigame : MonoBehaviour
     /// </summary>
     public void StartMinigame()
     {
+        if (activated) return;
+
+        ResetGame();
         for (int i = 0; i < 4; i++)
         {
             correctButtons.Add(Random.Range(0, 15));
@@ -96,10 +103,8 @@ public class MemoryMinigame : MonoBehaviour
     /// <returns>Yield return</returns>
     IEnumerator ShowCorrectButtons()
     {
-
         foreach (int btn in correctButtons)
         {
-            Debug.Log(btn);
             buttons[btn].color = Color.green;
             yield return new WaitForSeconds(1);
             buttons[btn].color = Color.white;
@@ -133,6 +138,8 @@ public class MemoryMinigame : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         cg.alpha = 0;
         playerLook.AllowLookInput = true;
+        doorCollider.enabled = false;
+        EndGame();
     }
 
     /// <summary>
@@ -159,5 +166,25 @@ public class MemoryMinigame : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         cg.alpha = 0;
         playerLook.AllowLookInput = true;
+        activated = false;
+        EndGame();
+    }
+
+    private void EndGame()
+    {
+        finished = false;
+        lost = false;
+        waiting = true;
+        pressedButtons.Clear();
+        correctButtons.Clear();
+    }
+
+    public void ResetGame()
+    {
+        activated = true;
+        foreach (Image btn in buttons)
+        {
+            btn.color = Color.white;
+        }
     }
 }

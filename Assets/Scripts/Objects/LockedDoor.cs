@@ -13,7 +13,7 @@ public class LockedDoor : Interactable
     {
         collider = this.GetComponent<MeshCollider>();
         //checking if the door is locked
-        if(locked)
+        if (locked)
         {
             collider.isTrigger = false;
         }
@@ -25,13 +25,13 @@ public class LockedDoor : Interactable
     public bool Interaction(Pickupable key)
     {
         //checking if the door can be unlocked
-        if(!canBeUnlocked)
+        if (!canBeUnlocked)
         {
             //UI Text, door cant be unlocked
         }
 
         //check if door is locked and can be unlocked
-        if(locked)
+        if (locked)
         {
             //checking if the holding item matches the required item
             if (this.key == key)
@@ -45,9 +45,6 @@ public class LockedDoor : Interactable
         return false;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public override void OnInteract()
     {
         if (locked)

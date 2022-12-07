@@ -6,13 +6,27 @@ public class PushObject : MonoBehaviour
 {
     private List<Rigidbody> affectedObjects = new List<Rigidbody>();
     private CharacterController player;
-    private const float objStrength = 1350f;
+    private const float objStrength = 800f;
     private const float playerStrength = 8f;
-    private const float maxVelocity = 20f;
+    [SerializeField]
+    private float maxVelocity = 4f;
 
     [SerializeField]
     private bool isActive = false;
-    public bool IsActive { set { isActive = value; } }
+    [SerializeField]
+    private bool isEnabled = true;
+
+    [SerializeField]
+    private float duration = 5f;
+
+    [SerializeField]
+    new private ParticleSystem particleSystem;
+
+    private void Awake()
+    {
+        if (isActive && !isEnabled)
+            isActive = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -42,16 +56,34 @@ public class PushObject : MonoBehaviour
         foreach (Rigidbody obj in affectedObjects)
         {
             if (obj.velocity.magnitude < maxVelocity)
-                obj.AddForce(transform.forward * PushStrength(obj.position) * objStrength * Time.deltaTime);
+                obj.AddForce(transform.forward * objStrength * Time.deltaTime);
         }
         if (player)
-            player.Move(transform.forward * PushStrength(player.transform.position) * playerStrength * Time.deltaTime);
+            player.Move(transform.forward * playerStrength * Time.deltaTime);
     }
 
-    private float PushStrength(Vector3 objPos)
+    public void Deactivate()
     {
-        float distance = Vector3.Distance(objPos,transform.position);
-        float strength = 1 / distance;
-        return strength;
+        isActive = false;
+    }
+
+    public void Activate(bool endWithDuration = false)
+    {
+        if (!isEnabled) return;
+
+        Invoke("SetActive", .5f);
+        particleSystem.Play();
+        if (endWithDuration)
+            Invoke("Deactivate", duration);
+    }
+
+    private void SetActive()
+    {
+        isActive = true;
+    }
+
+    public void Enable()
+    {
+        isEnabled = true;
     }
 }

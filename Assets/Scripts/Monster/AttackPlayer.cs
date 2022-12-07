@@ -5,11 +5,11 @@ using UnityEngine.Events;
 
 public class AttackPlayer : MonoBehaviour
 {
-    public UnityEvent OnPlayerDeath;
+    public UnityEvent onPlayerDeath;
     private float spawnDistance = 200f;
     private bool isAttacking = false;
     private Transform player;
-    private float movementSpeed = 50f;
+    private float movementSpeed = 65f;
     private List<SkinnedMeshRenderer> skinnedMeshes = new List<SkinnedMeshRenderer>();
 
     private void Awake()
@@ -38,6 +38,6 @@ public class AttackPlayer : MonoBehaviour
         transform.LookAt(player.position);
 
         if (Vector3.Distance(transform.position, player.position) < 1)
-            OnPlayerDeath.Invoke();
+            onPlayerDeath.Invoke();
     }
 }
