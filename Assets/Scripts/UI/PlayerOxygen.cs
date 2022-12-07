@@ -20,7 +20,7 @@ public class PlayerOxygen : MonoBehaviour
     private Player player;
 
     [SerializeField]
-    private Image OxygenBar;
+    private Image oxygenBar;
 
     private void Awake()
     {
@@ -34,7 +34,7 @@ public class PlayerOxygen : MonoBehaviour
 
     public void updateOxygen(bool inWater)
     {
-        if (OxygenBar == null) return;
+        if (oxygenBar == null) return;
 
         if (inWater)
         {
@@ -48,8 +48,7 @@ public class PlayerOxygen : MonoBehaviour
 
         if (oxygen < minOxygen)
         {
-            //Load game over scene
-            //SceneManager.LoadScene("GameOverScene");
+            SceneManager.LoadScene("GameOverScene");
         }
 
         if (oxygen > maxOxygen)
@@ -57,6 +56,6 @@ public class PlayerOxygen : MonoBehaviour
             oxygen = maxOxygen;
         }
 
-        OxygenBar.fillAmount = (oxygen / maxOxygen);
+        oxygenBar.fillAmount = (oxygen / maxOxygen);
     }
 }

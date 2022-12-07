@@ -2,33 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum CaptainStates{
+public enum CaptainStates
+{
     Idle, Walk
 }
 public class CaptainStatemachine : MonoBehaviour
 {
-    Vector3 lastPos;
-    Animator animator;
-    CaptainStates currentState = CaptainStates.Idle;
+    private Vector3 lastPos;
+    private Animator animator;
+    private CaptainStates currentState = CaptainStates.Idle;
+    private CaptainStates lastState = CaptainStates.Idle;
 
-
-    void Start(){
+    void Start()
+    {
         animator = GetComponent<Animator>();
     }
-    void Update(){
-        CaptainStates laststate = currentState;
-        if(transform.position == lastPos){
+
+    void Update()
+    {
+        lastState = currentState;
+        if (transform.position == lastPos)
+        {
             currentState = CaptainStates.Idle;
-        }else{
+        }
+        else
+        {
             currentState = CaptainStates.Walk;
         }
 
         lastPos = transform.position;
 
-        if(laststate == currentState)
+        if (lastState == currentState)
             return;
 
         animator.SetInteger("state", (int)currentState);
-        laststate = currentState;
+        lastState = currentState;
     }
 }
