@@ -18,7 +18,7 @@ public class Attack : MonoBehaviour
     public UnityEvent hasKilledTarget;
     private List<SkinnedMeshRenderer> skinnedMeshes = new List<SkinnedMeshRenderer>();
 
-    private void Awake()
+    private void Start()
     {
         skinnedMeshes.AddRange(GetComponentsInChildren<SkinnedMeshRenderer>());
         transform.position = startLocation.position;
@@ -44,7 +44,6 @@ public class Attack : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, target.position) < 1)
         {
-            Destroy(target);
             hasKilledTarget.Invoke();
             target = afterKillLocation;
         }

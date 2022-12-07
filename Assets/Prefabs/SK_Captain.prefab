@@ -942,9 +942,7 @@ GameObject:
   - component: {fileID: 3296055610799729889}
   - component: {fileID: 568819861}
   - component: {fileID: 568819863}
-  - component: {fileID: 568819866}
   - component: {fileID: 6577301970014945460}
-  - component: {fileID: 7414433339142030855}
   - component: {fileID: 568819862}
   - component: {fileID: 568819864}
   m_Layer: 0
@@ -1018,20 +1016,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!136 &568819866
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2807468466017597019}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.2454183
-  m_Height: 1.9624248
-  m_Direction: 1
-  m_Center: {x: 0.020000122, y: 0.8939605, z: -0.075239316}
+  interactText: 
 --- !u!136 &6577301970014945460
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1046,20 +1031,6 @@ CapsuleCollider:
   m_Height: 1.9624248
   m_Direction: 1
   m_Center: {x: 0.020000122, y: 0.8939605, z: -0.075239316}
---- !u!136 &7414433339142030855
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2807468466017597019}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &568819862
 Animator:
   serializedVersion: 4
