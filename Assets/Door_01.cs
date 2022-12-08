@@ -23,7 +23,7 @@ public class Door_01 : MonoBehaviour
 
     private void OpenDoor()
     {
-        //doorSound.Play();
+        doorSound.Play();
 
         wings[0]["door_01_wing_left"].speed = 1;
         wings[1]["door_01_wing_right"].speed = 1;
@@ -32,7 +32,7 @@ public class Door_01 : MonoBehaviour
     }
     private void CloseDoor()
     {
-        //doorSound.Play();
+        doorSound.Play();
 
         wings[0]["door_01_wing_left"].time = wings[0]["door_01_wing_left"].length;
         wings[1]["door_01_wing_right"].time = wings[1]["door_01_wing_right"].length;
@@ -40,6 +40,11 @@ public class Door_01 : MonoBehaviour
         wings[1]["door_01_wing_right"].speed = -1;
         wings[0].Play();
         wings[1].Play();
+    }
+
+    public void Open()
+    {
+        OpenDoor();
     }
 
     public void ToggleLock()
