@@ -15,22 +15,22 @@ public class BaseDoor : MonoBehaviour
 
     void OnTriggerEnter(Collider c)
     {
-        if (isLocked || !c.tag.Equals("Player")) return;
-        OpenDoor(c);
+        if (isLocked || c.tag != "Player") return;
+        OpenDoor();
     }
 
     void OnTriggerExit(Collider c)
     {
-        if (isLocked || !c.tag.Equals("Player")) return;
-        CloseDoor(c);
+        if (isLocked || c.tag != "Player") return;
+        CloseDoor();
     }
 
-    protected virtual void OpenDoor(Collider c)
+    protected virtual void OpenDoor()
     {
         doorSound.Play();
     }
 
-    protected virtual void CloseDoor(Collider c)
+    protected virtual void CloseDoor()
     {
         if (isLocked) return;
         doorSound.Play();
@@ -39,5 +39,10 @@ public class BaseDoor : MonoBehaviour
     public void UnlockDoor()
     {
         isLocked = false;
+    }
+
+    public void ToggleLock()
+    {
+        isLocked = !isLocked;
     }
 }
