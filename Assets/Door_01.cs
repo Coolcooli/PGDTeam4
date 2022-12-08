@@ -14,8 +14,8 @@ public class Door_01 : MonoBehaviour
     private AudioSource doorSound;
 
     private void Start()
-    { 
-        if(!isLocked)
+    {
+        if (!isLocked)
         {
             this.OpenDoor();
         }
@@ -44,14 +44,15 @@ public class Door_01 : MonoBehaviour
 
     public void Open()
     {
-        OpenDoor();
+        if (isLocked)
+            OpenDoor();
     }
 
     public void ToggleLock()
     {
         isLocked = !isLocked;
 
-        if(isLocked)
+        if (isLocked)
         {
             CloseDoor();
         }
@@ -59,5 +60,10 @@ public class Door_01 : MonoBehaviour
         {
             OpenDoor();
         }
+    }
+
+    public void Unlock()
+    {
+        isLocked = false;
     }
 }

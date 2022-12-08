@@ -39,7 +39,7 @@ public class WaterController : MonoBehaviour
 
     public void Drain()
     {
-        targetPosition = new Vector3(transform.position.x, -0.095f, transform.position.z);
+        targetPosition = new Vector3(transform.position.x, transform.position.y - 4f, transform.position.z);
         isMoving = true;
         isDraining = true;
     }
