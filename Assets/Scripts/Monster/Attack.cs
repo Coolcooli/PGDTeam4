@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using Unity.Services.Analytics;
+using UnityEngine.Analytics;
 
 public class Attack : MonoBehaviour
 {
@@ -22,6 +24,7 @@ public class Attack : MonoBehaviour
     {
         skinnedMeshes.AddRange(GetComponentsInChildren<SkinnedMeshRenderer>());
         transform.position = startLocation.position;
+        Analytics.CustomEvent("CustomEvent");
     }
 
     private void FixedUpdate()
