@@ -8,7 +8,52 @@
     {
       "index": 1,
       "name": "Captain",
-      "sentences": [ "the key is in the engine room"]
+      "sentences": [ "the key is in the engine room" ]
+    },
+    {
+      "index": 2,
+      "name": "Me",
+      "sentences": [ "I am in danger. I should get cover in that lab!" ]
+    },
+    {
+      "index": 3,
+      "name": "Me",
+      "sentences": [ "Wow that was close, that could have been mee", "This lab looks like its abandoned for a long time" ]
+    },
+    {
+      "index": 4,
+      "name": "Me",
+      "sentences": [ "No wonder they abandoned this lab, its flooded" ]
+    },
+    {
+      "index": 5,
+      "name": "Me",
+      "sentences": [ "Maybe these valves have something to do with this flooded part of the lab."]
+    },
+    {
+      "index": 6,
+      "name": "Me",
+      "sentences": [ "Maybe these valves fit on here" ]
+    },
+    {
+      "index": 7,
+      "name": "Me",
+      "sentences": [ "That seems to do the job" ]
+    },
+    {
+      "index": 8,
+      "name": "Me",
+      "sentences": [ "I should try to get that system up and running again" ]
+    },
+    {
+      "index": 9,
+      "name": "Me",
+      "sentences": [ "Well that did the trick" ]
+    },
+    {
+      "index": 10,
+      "name": "Me",
+      "sentences": [ "This faccility is up and running again" ]
     }
   ]
 }

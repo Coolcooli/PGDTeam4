@@ -16,6 +16,7 @@ public class Attack : MonoBehaviour
     private bool isAttacking = false;
 
     public UnityEvent hasKilledTarget;
+    public UnityEvent startDialoge;
     private List<SkinnedMeshRenderer> skinnedMeshes = new List<SkinnedMeshRenderer>();
 
     private void Start()
@@ -45,7 +46,14 @@ public class Attack : MonoBehaviour
         if (Vector3.Distance(transform.position, target.position) < 1)
         {
             hasKilledTarget.Invoke();
+            StartCoroutine(dialogeDelay());
             target = afterKillLocation;
         }
+    }
+
+    IEnumerator dialogeDelay()
+    {
+        yield return new WaitForSeconds(1.3f);
+        startDialoge.Invoke();
     }
 }
