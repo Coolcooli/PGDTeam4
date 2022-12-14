@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Services.Analytics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,9 @@ public class MemoryMinigame : MonoBehaviour
     private bool finished = false;
     private bool lost = false;
     private bool activated = false;
+    private bool analyticSend = false;
+
+    private int attempts = 0;
 
     [SerializeField]
     private PlayerLookInput playerLook;
@@ -42,7 +46,7 @@ public class MemoryMinigame : MonoBehaviour
     public void StartMinigame()
     {
         if (activated) return;
-
+        attempts++;
         ResetGame();
         for (int i = 0; i < 4; i++)
         {
@@ -140,6 +144,8 @@ public class MemoryMinigame : MonoBehaviour
         playerLook.AllowLookInput = true;
         doorCollider.enabled = false;
         EndGame();
+        SendAnalytics();
+        attempts = 0;
     }
 
     /// <summary>
@@ -186,5 +192,16 @@ public class MemoryMinigame : MonoBehaviour
         {
             btn.color = Color.white;
         }
+    }
+
+    public void SendAnalytics()
+    {
+        if (analyticSend) return;
+        analyticSend = true;
+        var data = new Dictionary<string, object>();
+        data.Add("attempts", attempts);
+        AnalyticsService.Instance.CustomData("memoryMinigameAttempts", data);
+        AnalyticsService.Instance.Flush();
+           
     }
 }

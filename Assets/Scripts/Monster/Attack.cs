@@ -24,7 +24,7 @@ public class Attack : MonoBehaviour
     {
         skinnedMeshes.AddRange(GetComponentsInChildren<SkinnedMeshRenderer>());
         transform.position = startLocation.position;
-        Analytics.CustomEvent("CustomEvent");
+
     }
 
     private void FixedUpdate()
@@ -38,6 +38,7 @@ public class Attack : MonoBehaviour
 
     public void AttackCaptain()
     {
+
         foreach (SkinnedMeshRenderer mesh in skinnedMeshes)
             mesh.enabled = true;
         isAttacking = true;

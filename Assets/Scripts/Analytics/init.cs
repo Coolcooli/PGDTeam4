@@ -2,14 +2,21 @@ using UnityEngine;
 using Unity.Services.Core;
 using Unity.Services.Analytics;
 using System.Collections.Generic;
+using UnityEngine.Analytics;
+using Unity.Services.Core.Analytics;
 
 public class Init : MonoBehaviour
 {
-    async void Start()
+    async void Awake()
     {
         try
         {
-            await UnityServices.InitializeAsync();
+
+            string newUserId = Random.Range(11111111, 99999999).ToString();
+            var options = new InitializationOptions();
+            options.SetAnalyticsUserId(newUserId);
+
+            await UnityServices.InitializeAsync(options);
             List<string> consentIdentifiers = await AnalyticsService.Instance.CheckForRequiredConsents();
         }
         catch (ConsentCheckException e)
