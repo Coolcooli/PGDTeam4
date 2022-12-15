@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class PauseGame : MonoBehaviour
 {
     [SerializeField]private GameObject pauseUI;
+    [SerializeField] private GameObject Player;
 
-    	
+
     /// <summary>
     /// function that pauses the game
     /// </summary>
@@ -23,6 +23,12 @@ public class PauseGame : MonoBehaviour
         }
 
         pauseUI.SetActive(true);
+
+
+        PlayerInput input = Player.GetComponent<PlayerInput>();
+
+        input.actions.FindActionMap("Player").Disable();
+        input.actions.FindActionMap("UI").Enable();
 
     }
 }

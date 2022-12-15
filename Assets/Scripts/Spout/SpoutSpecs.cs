@@ -1,7 +1,8 @@
-#if UNITY_EDITOR
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using static UnityEngine.ParticleSystem;
+#if UNITY_EDITOR
 
 [ExecuteInEditMode]
 public class SpoutSpecs : MonoBehaviour
@@ -13,7 +14,7 @@ public class SpoutSpecs : MonoBehaviour
     private float PushRange
     {
         get { return boxCollider.size.z; }
-        set { pushRange = SetPushRange(value); SetParticleLifetime(value); }
+        set { pushRange = SetPushRange(value); }
     }
 
     [SerializeField]
@@ -40,15 +41,6 @@ public class SpoutSpecs : MonoBehaviour
         boxCollider.size = new Vector3(boxCollider.size.x, boxCollider.size.y, value);
         boxCollider.center = new Vector3(boxCollider.center.x, boxCollider.center.y, value / 2);
         return value;
-    }
-
-    private void SetParticleLifetime(float value)
-    {
-        ParticleSystem particle = GetComponentInChildren<ParticleSystem>();
-        if (!particle) return;
-
-        MainModule main = particle.main;
-        main.startLifetime = value / main.startSpeed.constant;
     }
 
     private float SetPushWidth(float value)

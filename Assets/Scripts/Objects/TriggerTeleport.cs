@@ -18,6 +18,7 @@ public class TriggerTeleport : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("tp");
         if(scene != "")
         {
             controller.enabled = false;
@@ -31,5 +32,6 @@ public class TriggerTeleport : MonoBehaviour
             player.transform.position = destination;
             controller.enabled = true;
         }
+        
     }
 }
