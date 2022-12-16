@@ -26,6 +26,7 @@ public class AIPoint : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other){
+        Debug.Log(gameObject.name);
         switch (other.tag){
             case "Player":
                 if(!active) return;
