@@ -15,7 +15,7 @@ public class AIPoint : MonoBehaviour
     private Dictionary<Approachdir, Transform> nextPoints = new Dictionary<Approachdir, Transform>();
 
     bool active = false;
-    LizardPathFinding lizard;
+    OctopusPathFinding lizard;
 
 
     void Start(){
@@ -36,7 +36,8 @@ public class AIPoint : MonoBehaviour
             
             case "Lizard":
                 active = true;
-                lizard = other.GetComponent<LizardPathFinding>();
+                lizard = other.GetComponent<OctopusPathFinding>();
+                lizard.animator.SetBool("walking", false);
                 break;
         }
     }
