@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     public float Gravity { get { return 30f; } }
     public bool IsGrounded => characterController.isGrounded;
 
-    [SerializeField] private float decelleration = 1f;
+    [SerializeField] private float deceleration = 1f;
     [SerializeField]
     private float landSpeed = 5;
     [SerializeField] private float landAcceleration = .05f;
@@ -106,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (movementDirection.magnitude <= 0)
         {
-            return Mathf.Lerp(currentMovement.magnitude, 0, decelleration) * playerCamera.transform.forward;
+            return Mathf.Lerp(currentMovement.magnitude, 0, deceleration) * playerCamera.transform.forward;
         }
         if (player.IsInWater)
         {
@@ -117,7 +117,8 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             Vector3 movement = (movementDirection.x * transform.right + movementDirection.z * transform.forward) * landSpeed * sprintMultiplier;
-            return Mathf.Lerp(currentMovement.magnitude, movement.magnitude, landAcceleration) * movement.normalized;
+            float wantedSpeed = Mathf.Lerp(currentMovement.magnitude, movement.magnitude, landAcceleration);
+            return wantedSpeed * movement.normalized;
         }
     }
 }
