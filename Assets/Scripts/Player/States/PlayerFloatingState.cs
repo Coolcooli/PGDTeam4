@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerFloatingState : PlayerBaseState
 {
-    PlayerOxygen oxygen;
     public PlayerFloatingState(Player context, PlayerStateFactory factory, PlayerMovement movement) : base(context, factory, movement) { IsRootState = true; }
 
     private float speed = 5.0f;
@@ -12,7 +11,7 @@ public class PlayerFloatingState : PlayerBaseState
 
     public override void EnterState()
     {
-        oxygen = Context.GetComponent<PlayerOxygen>();
+        Context.IsInWater = true;
     }
 
     public override void UpdateState()
@@ -32,8 +31,6 @@ public class PlayerFloatingState : PlayerBaseState
 
             Movement.Velocity = Vector3.zero;
         }
-
-        oxygen.UpdateOxygen(false);
     }
 
     public override void CheckSwitchStates()

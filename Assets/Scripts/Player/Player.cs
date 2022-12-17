@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
                 if (currentWaterColliders > 0)
                 {
                     currentAirColliders++;
+                    isInWater = true;
                     currentState.SwitchState(currentState.Factory.Floating());
                     break;
                 }

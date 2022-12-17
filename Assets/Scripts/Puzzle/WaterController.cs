@@ -22,9 +22,7 @@ public class WaterController : MonoBehaviour
         {
             isMoving = false;
             if (isDraining)
-            {
-                ClearWater();
-            }
+                Destroy(gameObject);
             return;
         }
 
@@ -42,15 +40,5 @@ public class WaterController : MonoBehaviour
         targetPosition = new Vector3(transform.position.x, transform.position.y - 4f, transform.position.z);
         isMoving = true;
         isDraining = true;
-    }
-
-    private void ClearWater()
-    {
-        for (int i = 1; i < 4; i++)
-        {
-            GameObject prefab = Resources.Load<GameObject>("Outpost1/AirColliderRoom" + i);
-            Instantiate(prefab);
-        }
-        Destroy(gameObject);
     }
 }
