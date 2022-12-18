@@ -36,8 +36,8 @@ public class AIDoorPoint : AIPoint
             lizard.giveUp();
             return;
         }
-
-        base.calculateNext(direction);
+        Debug.Log("New: " +newDirection);
+        base.calculateNext(newDirection);
     }
 
     /// <summary>
@@ -47,10 +47,11 @@ public class AIDoorPoint : AIPoint
     /// <returns>the direction the agent should go</returns>
     private Approachdir CheckDoor(Approachdir direction, int depth = 0){
         Approachdir checkdirection = getCheckdirection(direction, depth);
+        Debug.Log("check: " + checkdirection);
 
         if(Doors[checkdirection] == null || !Doors[checkdirection].IsLocked)
-            return direction;
-        return (CheckDoor(direction, depth++));
+            return checkdirection;
+        return (CheckDoor(direction, depth+1));
     }
 
     /// <summary>
