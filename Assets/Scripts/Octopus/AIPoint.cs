@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AIPoint : MonoBehaviour
 {
-    enum Approachdir {
+    protected enum Approachdir {
         north,east,south,west
     }
     [SerializeField] private Transform north = null;
@@ -15,10 +15,10 @@ public class AIPoint : MonoBehaviour
     private Dictionary<Approachdir, Transform> nextPoints = new Dictionary<Approachdir, Transform>();
 
     bool active = false;
-    OctopusPathFinding lizard;
+    protected OctopusPathFinding lizard;
 
 
-    void Start(){
+    virtual protected void Start(){
         nextPoints.Add(Approachdir.north, south);
         nextPoints.Add(Approachdir.east, west);
         nextPoints.Add(Approachdir.south, north);
@@ -31,7 +31,7 @@ public class AIPoint : MonoBehaviour
             case "Player":
                 if(!active) return;
                 active = false;
-                lizard.moveNext(nextPoints[calculateDirection(other.transform)]);
+                calculateNext(calculateDirection(other.transform));
                 break;
             
             case "Lizard":
@@ -40,6 +40,15 @@ public class AIPoint : MonoBehaviour
                 lizard.animator.SetBool("walking", false);
                 break;
         }
+    }
+
+
+    /// <summary>
+    /// calculates the next move the agent has to move to
+    /// </summary>
+    /// <param name="other"></param>
+    protected virtual void calculateNext(Approachdir direction){
+        lizard.moveNext(nextPoints[direction]);
     }
 
 
