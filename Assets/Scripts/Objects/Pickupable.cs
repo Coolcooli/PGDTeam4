@@ -34,6 +34,7 @@ public class Pickupable : Interactable
         transform.parent = player.transform;
         transform.localPosition = holdOffset;
         transform.localScale = new Vector3(holdScale, holdScale, holdScale);
+        transform.localEulerAngles = holdRotation;
 
         //disables gravity and collision
         rigidbody.isKinematic = true;

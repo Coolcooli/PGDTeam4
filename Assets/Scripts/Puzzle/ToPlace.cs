@@ -9,7 +9,7 @@ public class ToPlace : Interactable
 
     [SerializeField]
     private List<Pickupable> placeables;
-    private bool placed = false;
+    public bool placed = false;
 
     public override void OnInteract()
     {
@@ -21,10 +21,10 @@ public class ToPlace : Interactable
 
     public bool Interaction(Pickupable placeable)
     {
-        print("interact");
         if(placed)
         {
             placed = false;
+            print("remove");
             Remove.Invoke();
             return false;
         }
@@ -32,6 +32,7 @@ public class ToPlace : Interactable
         else if (placeables.Contains(placeable))
         {
             placed = true;
+            print("place");
             OnInteract();
             return true;
         }
