@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WaterController : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class WaterController : MonoBehaviour
     [SerializeField]
     private float raiseAmount = .15f;
 
+    public UnityEvent onDrained;
+
     private void FixedUpdate()
     {
         if (!isMoving) return;
@@ -22,7 +25,10 @@ public class WaterController : MonoBehaviour
         {
             isMoving = false;
             if (isDraining)
+            {
                 Destroy(gameObject);
+                onDrained?.Invoke();
+            }
             return;
         }
 

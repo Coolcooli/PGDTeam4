@@ -120,11 +120,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 8
-  decelleration: 0.3
+  deceleration: 1
   landSpeed: 5
   landAcceleration: 0.05
   waterSpeed: 3
-  waterAcceleration: 0.02
+  waterAcceleration: 0.03
 --- !u!114 &4792251424872913590
 MonoBehaviour:
   m_ObjectHideFlags: 0
