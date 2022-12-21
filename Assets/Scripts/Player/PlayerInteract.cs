@@ -49,7 +49,10 @@ public class PlayerInteract : MonoBehaviour
                 if (placeable == null)
                     return;
 
-                if (placeable.Interaction(inventory.Holding))
+                if (!(inventory.Holding is Placeable))
+                    return;
+
+                if (placeable.Interaction(inventory.Holding as Placeable))
                 {
                     Pickupable item = inventory.Holding;
                     inventory.Drop();
@@ -57,7 +60,6 @@ public class PlayerInteract : MonoBehaviour
                     item.transform.position = placeable.transform.position;
                     item.transform.rotation = placeable.transform.rotation;
                 }
-
             }
         }
     }

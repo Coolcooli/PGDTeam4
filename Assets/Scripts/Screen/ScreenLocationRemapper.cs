@@ -28,7 +28,7 @@ public class ScreenLocationRemapper : MonoBehaviour
     /// </summary>
     private void RemapMonsterLocation()
     {
-        float targetX = MathAdditions.Remap(targetObject.position.x, -maxX, maxX, minValue, maxValue);
+        float targetX = MathAdditions.Remap(targetObject.position.x, -maxX, maxX, minValue, maxValue);  
         float targetY = MathAdditions.Remap(targetObject.position.z, -maxZ, maxZ, minValue, maxValue);
 
         transform.localPosition = new Vector3(targetX, targetY, transform.localPosition.z);

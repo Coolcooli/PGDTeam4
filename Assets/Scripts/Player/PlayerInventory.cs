@@ -37,14 +37,6 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    public void Unbind()
-    {
-        if (inventory[holding] == null)
-            return;
-        inventory[holding].Drop(this.gameObject);
-        inventory[holding] = null;
-    }
-
     /// <summary>
     /// drops the item the player is currently holding
     /// </summary>
@@ -52,7 +44,7 @@ public class PlayerInventory : MonoBehaviour
     {
         if(inventory[holding] == null)
             return;
-        inventory[holding].Drop(this.gameObject);
+        inventory[holding].Drop();
         inventory[holding] = null;
     }
 

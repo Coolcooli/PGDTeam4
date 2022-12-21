@@ -8,31 +8,28 @@ public class ToPlace : Interactable
     public UnityEvent Remove;
 
     [SerializeField]
-    private List<Pickupable> placeables;
-    public bool placed = false;
+    private List<Placeable> placeables;
+    [SerializeField]
+    private Placeable placedItem = null;
 
     public override void OnInteract()
     {
-        if (!placed)
+        if (placedItem == null)
             return;
-
+   
         onInteract?.Invoke();
+        placedItem = null;
     }
 
-    public bool Interaction(Pickupable placeable)
+    public bool Interaction(Placeable placeable)
     {
-        if(placed)
-        {
-            placed = false;
-            print("remove");
-            Remove.Invoke();
-            return false;
-        }
         //checking if the holding item matches the required item
-        else if (placeables.Contains(placeable))
+        if (placeables.Contains(placeable))
         {
-            placed = true;
-            print("place");
+            placedItem = placeable;
+            placeable.Remove.AddListener(Remove.Invoke);
+            //placeable.Remove.AddListener(() => placedItem = null);
+            placeable.Remove.AddListener(placeable.Remove.RemoveAllListeners);
             OnInteract();
             return true;
         }
