@@ -77772,11 +77772,48 @@ PrefabInstance:
       propertyPath: m_Version
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7013682936526977555, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+        type: 3}
+      propertyPath: loopSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013682936526977555, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+        type: 3}
+      propertyPath: loopSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 1460873349}
+    - target: {fileID: 7013682936526977555, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+        type: 3}
+      propertyPath: loopSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 1460873348}
+    - target: {fileID: 7548541666694818422, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+        type: 3}
+      propertyPath: m_Name
+      value: movementSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810220203874335970, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+        type: 3}
+      propertyPath: m_Name
+      value: swimSound
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50d766ebad5c2df4ca1b0d3068805a91, type: 3}
+--- !u!82 &1460873348 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5428587542765769535, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+    type: 3}
+  m_PrefabInstance: {fileID: 1460873347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1460873349 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1854192292256572555, guid: 50d766ebad5c2df4ca1b0d3068805a91,
+    type: 3}
+  m_PrefabInstance: {fileID: 1460873347}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1461251774 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3615393576728738590, guid: 1a7f06749fffa524999fa4dc1930abe4,

@@ -8,11 +8,11 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     private CharacterController characterController;
+    private SoundManager sound;
 
     private bool isMoving = false;
     public bool IsMoving => isMoving;
-    [SerializeField] private AudioSource movementSound;
-    [SerializeField] private AudioSource swimSound;
+
     private bool isSprinting = false;
     private float sprintMultiplier = 1f;
     public float SprintMultiplier { set { sprintMultiplier = value; } }
@@ -35,8 +35,7 @@ public class PlayerMovement : MonoBehaviour
     public bool IsGrounded => characterController.isGrounded;
 
     [SerializeField] private float deceleration = 1f;
-    [SerializeField]
-    private float landSpeed = 5;
+    [SerializeField] private float landSpeed = 5;
     [SerializeField] private float landAcceleration = .05f;
     [SerializeField]
     private float waterSpeed = 3;
@@ -54,8 +53,9 @@ public class PlayerMovement : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         player = GetComponent<Player>();
         playerCamera = Camera.main;
-        movementSound.gameObject.SetActive(false);
-        swimSound.gameObject.SetActive(false);
+        sound.StopLoop("movementSound");
+        sound.StopLoop("swimSound");
+
     }
 
     private void Update()
@@ -94,14 +94,14 @@ public class PlayerMovement : MonoBehaviour
         if (input.magnitude > 0){
             isMoving = true;
             if(player.IsInWater)
-                swimSound.gameObject.SetActive(true);
+                sound.StartLoop("swimSound");
             else
-                movementSound.gameObject.SetActive(true);
+                sound.StartLoop("movementSound");
         }
         else{
             isMoving = false;
-            movementSound.gameObject.SetActive(false);
-            swimSound.gameObject.SetActive(false);
+            sound.StopLoop("swimSound");
+            sound.StopLoop("movementSound");
         }
         movementDirection = new Vector3(input.x, 0, input.y);
     }
