@@ -27,12 +27,12 @@ public class PlayerLookInput : MonoBehaviour
         if (!allowLookInput) return;
 
         Vector2 input = context.ReadValue<Vector2>();
-        cameraRotation -= input.y * mouseSensitivity * Time.deltaTime;
+        cameraRotation -= input.y * mouseSensitivity / 80 ;
 
         cameraRotation = Mathf.Clamp(cameraRotation, -90, 90);
 
         playerCamera.transform.localRotation = Quaternion.Euler(cameraRotation, 0, 0);
 
-        transform.Rotate(Vector3.up * input.x * mouseSensitivity * Time.deltaTime);
+        transform.Rotate(Vector3.up * input.x * mouseSensitivity / 80);
     }
 }

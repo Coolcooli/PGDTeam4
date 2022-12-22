@@ -2,14 +2,18 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Stripes_orange
   m_Shader: {fileID: 4800000, guid: 1e3f66c8b1d486247a9cabe93c85a60d, type: 3}
-  m_ShaderKeywords: _ADD_PRECOMPUTED_VELOCITY
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - _ADD_PRECOMPUTED_VELOCITY
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -18,6 +22,7 @@ Material:
     MotionVector: User
   disabledShaderPasses:
   - TransparentBackface
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -73,6 +78,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - PixelSnap: 0
     - _AddPrecomputedVelocity: 1
@@ -113,10 +119,10 @@ Material:
     - _StencilRefGBuffer: 10
     - _StencilRefMV: 40
     - _StencilWriteMask: 6
-    - _StencilWriteMaskDepth: 8
+    - _StencilWriteMaskDepth: 9
     - _StencilWriteMaskDistortionVec: 4
-    - _StencilWriteMaskGBuffer: 14
-    - _StencilWriteMaskMV: 40
+    - _StencilWriteMaskGBuffer: 15
+    - _StencilWriteMaskMV: 41
     - _SurfaceType: 0
     - _TransparencyStrength: 1
     - _TransparentBackfaceEnable: 0
@@ -125,7 +131,7 @@ Material:
     - _TransparentZWrite: 1
     - _UVSec: 0
     - _UseShadowThreshold: 0
-    - _WearAmount: 0.088
+    - _WearAmount: 0.111
     - _WearLevel: 0.391
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 4
@@ -136,4 +142,5 @@ Material:
     - _Color: {r: 0.4437045, g: 0.4852941, b: 0.25335208, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _TintColor: {r: 0.8014706, g: 0.69059813, b: 0.07071801, a: 0.5}
+    - _TintColor: {r: 0.4245283, g: 0.36126527, b: 0, a: 0.5}
+  m_BuildTextureStacks: []

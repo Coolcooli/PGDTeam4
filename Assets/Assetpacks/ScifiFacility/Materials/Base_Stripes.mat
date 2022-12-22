@@ -9,6 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Base_Stripes
   m_Shader: {fileID: 4800000, guid: 1e3f66c8b1d486247a9cabe93c85a60d, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ALPHATEST_ON
   m_InvalidKeywords:
@@ -22,6 +24,7 @@ Material:
     RenderType: TransparentCutout
   disabledShaderPasses:
   - TransparentBackface
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -108,7 +111,7 @@ Material:
     - _ReceivesSSR: 1
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
-    - _ScratchesAmount: 0.1
+    - _ScratchesAmount: 0.915
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -118,10 +121,10 @@ Material:
     - _StencilRefGBuffer: 10
     - _StencilRefMV: 40
     - _StencilWriteMask: 6
-    - _StencilWriteMaskDepth: 8
+    - _StencilWriteMaskDepth: 9
     - _StencilWriteMaskDistortionVec: 4
-    - _StencilWriteMaskGBuffer: 14
-    - _StencilWriteMaskMV: 40
+    - _StencilWriteMaskGBuffer: 15
+    - _StencilWriteMaskMV: 41
     - _SurfaceType: 0
     - _TransparencyStrength: 1
     - _TransparentBackfaceEnable: 0
@@ -130,7 +133,7 @@ Material:
     - _TransparentZWrite: 1
     - _UVSec: 0
     - _UseShadowThreshold: 0
-    - _WearAmount: 0.08
+    - _WearAmount: 0.769
     - _WearLevel: 0.391
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 3

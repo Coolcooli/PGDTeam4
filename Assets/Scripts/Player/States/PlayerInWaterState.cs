@@ -12,11 +12,11 @@ public class PlayerInWaterState : PlayerBaseState
     {
         if (Movement.IsJumpPressed)
         {
-            Movement.Velocity = Vector3.up * Movement.WaterSpeed;
+            Movement.Velocity = Mathf.Lerp(Movement.Velocity.y, Movement.WaterSpeed, Movement.WaterAcceleration) * Context.transform.up;
         }
         else if (Movement.IsCrouchPressed)
         {
-            Movement.Velocity = Vector3.up * -Movement.WaterSpeed;
+            Movement.Velocity = Mathf.Lerp(Movement.Velocity.y, -Movement.WaterSpeed, Movement.WaterAcceleration) * Context.transform.up;
         }
         else
         {
@@ -24,8 +24,16 @@ public class PlayerInWaterState : PlayerBaseState
         }
     }
 
+    public override void ExitState()
+    {
+        Movement.Velocity = Vector3.zero;
+    }
+
     public override void CheckSwitchStates()
     {
+        if (Context.CurrentWaterColliders > 0 && Context.CurrentAirColliders > 0)
+            SwitchState(Factory.Floating());
+
         if (!Context.IsInWater)
         {
             if (Movement.IsGrounded)

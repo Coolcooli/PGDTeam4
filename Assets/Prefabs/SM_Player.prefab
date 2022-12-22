@@ -125,8 +125,11 @@ MonoBehaviour:
   movementSound: {fileID: 1854192292256572555}
   swimSound: {fileID: 5428587542765769535}
   jumpForce: 8
-  landSpeed: 8
-  waterSpeed: 6
+  deceleration: 1
+  landSpeed: 5
+  landAcceleration: 0.05
+  waterSpeed: 3
+  waterAcceleration: 0.03
 --- !u!114 &4792251424872913590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,6 +324,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6eda9b66-fa28-4806-a59e-db51bff0a8eb
     m_ActionName: Player/Sprint[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2164b8c0-d0f9-4186-b15d-c0fb7ab972da
+    m_ActionName: Player/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c78125e9-e20d-4f19-a731-4114123c9fa5
+    m_ActionName: UI/exit[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -391,8 +402,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8890018955739557381}
+  m_Children: []
   m_Father: {fileID: 1355036789072795771}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

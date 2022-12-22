@@ -12,7 +12,11 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private bool isInWater = true;
-    public bool IsInWater { get { return isInWater; } }
+    public bool IsInWater { get { return isInWater; } set { isInWater = value; } }
+    private int currentAirColliders;
+    public int CurrentAirColliders => currentAirColliders;
+    private int currentWaterColliders;
+    public int CurrentWaterColliders => currentWaterColliders;
 
     private SoundManager sm;
 
@@ -22,7 +26,6 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         PlayerMovement movement = GetComponent<PlayerMovement>();
-
         states = new PlayerStateFactory(this, movement);
         currentState = movement.IsGrounded ? states.Grounded() : states.Jump();
         currentState.EnterState();
@@ -44,16 +47,40 @@ public class Player : MonoBehaviour
         switch (other.tag)
         {
             case "Air":
+                if (currentWaterColliders > 0)
+                {
+                    currentAirColliders++;
+                    isInWater = true;
+                    currentState.SwitchState(currentState.Factory.Floating());
+                    break;
+                }
                 isInWater = false;
                 sm.Play("waterExit");
                 sm.Stop("inWater");
                 Debug.Log("enter");
+                currentAirColliders++;
                 break;
             case "Water":
                 isInWater = true;
                 sm.Play("waterEnter");
                 sm.Play("inWater");
                 Debug.Log("exit");
+                currentWaterColliders++;
+                break;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        switch (other.tag)
+        {
+            case "Air":
+                currentAirColliders--;
+                if (currentAirColliders <= 0)
+                    isInWater = true;
+                break;
+            case "Water":
+                currentWaterColliders--;
                 break;
         }
     }

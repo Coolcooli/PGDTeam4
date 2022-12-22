@@ -536,7 +536,7 @@ Shader "Triplebrick/DoubleLayer_HDRP"
 				#if HAVE_DECALS
 				if( _EnableDecals )
 				{
-					DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, fragInputs.tangentToWorld[2], surfaceDescription.Alpha);
+					DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, fragInputs/*.tangentToWorld[2]*/, surfaceDescription.Alpha);
 					ApplyDecalToSurfaceData(decalSurfaceData, fragInputs.tangentToWorld[2], surfaceData);
 				}
 				#endif

@@ -9,7 +9,7 @@ public class TriggerAttackCaptain : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name.Contains("Captain"))
+        if (other.name.Equals("SK_Captain"))
         {
             onStartFishAttack?.Invoke();
         }

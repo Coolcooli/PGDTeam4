@@ -34,4 +34,8 @@ public class PlayerStateFactory
     {
         return new PlayerGroundedState(context, this, movement);
     }
+    public PlayerBaseState Floating()
+    {
+        return new PlayerFloatingState(context, this, movement);
+    }
 }

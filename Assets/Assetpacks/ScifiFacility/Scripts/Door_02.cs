@@ -1,41 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using UnityEngine;
 
-public class Door_02 : MonoBehaviour
+public class Door_02 : BaseDoor
 {
-    [SerializeField]
-    private Animation wing;
-    [SerializeField]
-    private bool isLocked;
-
-    void OnTriggerEnter(Collider c)
+    protected override void OpenDoor()
     {
-        if (isLocked) return;
+        base.OpenDoor();
 
-        if (c.tag.Equals("Player"))
-        {
-            GetComponent<AudioSource>().Play();
-            wing["door_02_wing"].speed = 1;
-            wing.Play();
-        }
+        wings[0]["door_02_wing"].speed = 1;
+        wings[0].Play();
     }
 
-    void OnTriggerExit(Collider c)
+    protected override void CloseDoor()
     {
-        if (isLocked) return;
+        base.CloseDoor();
 
-        if (c.tag.Equals("Player"))
-        {
-            GetComponent<AudioSource>().Play();
-            wing["door_02_wing"].time = wing["door_02_wing"].length;
-            wing["door_02_wing"].speed = -1;
-            wing.Play();
-        }
-    }
-
-    public void UnlockDoor()
-    {
-        isLocked = false;
+        wings[0]["door_02_wing"].time = wings[0]["door_02_wing"].length;
+        wings[0]["door_02_wing"].speed = -1;
+        wings[0].Play();
     }
 }
