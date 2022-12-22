@@ -28,23 +28,23 @@ public class Pickupable : Interactable
     /// attaches the object to the player that picks it up
     /// </summary>
     /// <param name="player">the player that picks it up</param>
-    public void Pickup(GameObject player)
+    public virtual void Pickup(GameObject player)
     {
         //sets the location to the hand and the parent to the player
         transform.parent = player.transform;
         transform.localPosition = holdOffset;
         transform.localScale = new Vector3(holdScale, holdScale, holdScale);
+        transform.localEulerAngles = holdRotation;
 
         //disables gravity and collision
         rigidbody.isKinematic = true;
         collider.enabled = false;
     }
-
     /// <summary>
     /// transfers the object from the player back to the environment
     /// </summary>
     /// <param name="player">player that drops the item</param>
-    public void Drop(GameObject player)
+    public void Drop()
     {
         transform.parent = null;
         transform.localScale = scale;
@@ -52,6 +52,8 @@ public class Pickupable : Interactable
         //enables gravity and collision
         rigidbody.isKinematic = false;
         collider.enabled = true;
+
+        rigidbody.AddForce(((transform.forward*.5f) + transform.up) * 150);
     }
 
     public void DoDestroy()
