@@ -85,6 +85,14 @@ public class SoundManager : MonoBehaviour
         audio.gameObject.SetActive(false);
 
     }
+
+
+    /// <summary>
+    /// checks if an audio is started/stopped the right way
+    /// </summary>
+    /// <param name="audio">the audio that needs to be checked</param>
+    /// <param name="isLoop">is the audio an loop</param>
+    /// <returns>true if the sound is called the right way</returns>
     private bool CheckSound(AudioSource audio, bool isLoop){
         if(isLoop)
             return loopSounds.Contains(audio);
