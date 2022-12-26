@@ -12,11 +12,11 @@ public class PlayerInWaterState : PlayerBaseState
     {
         if (Movement.IsJumpPressed)
         {
-            Movement.Velocity = Vector3.up * Movement.WaterSpeed;
+            Movement.Velocity = Mathf.Lerp(Movement.Velocity.y, Movement.WaterSpeed, Movement.WaterAcceleration) * Context.transform.up;
         }
         else if (Movement.IsCrouchPressed)
         {
-            Movement.Velocity = Vector3.up * -Movement.WaterSpeed;
+            Movement.Velocity = Mathf.Lerp(Movement.Velocity.y, -Movement.WaterSpeed, Movement.WaterAcceleration) * Context.transform.up;
         }
         else
         {

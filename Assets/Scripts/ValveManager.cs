@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class ValveManager : MonoBehaviour
 {
     public UnityEvent enoughValves;
+    [SerializeField]
     private int valves = 0;
 
     public void AddValve()
@@ -17,12 +18,11 @@ public class ValveManager : MonoBehaviour
     public void RemoveValve()
     {
         valves--;
-        CheckValves();
     }
 
     private void CheckValves()
     {
-        if(valves >= 3)
+        if(valves >= 10)
         {
             enoughValves.Invoke();
         }
