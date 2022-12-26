@@ -9,7 +9,7 @@ public class TriggerChecker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Rigidbody>())
+        //if (other.GetComponent<Rigidbody>())
             onTrigger?.Invoke();
     }
 }
