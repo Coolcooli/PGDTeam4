@@ -17,7 +17,10 @@ public class VolumeEditor : MonoBehaviour
 
     private void Start()
     {
-        originValue = exposure.compensation.value;
+        if (volume.TryGet<Exposure>(out exposure))
+        {
+            originValue = exposure.compensation.value;
+        }
     }
 
     public IEnumerator Flickering(float amount)

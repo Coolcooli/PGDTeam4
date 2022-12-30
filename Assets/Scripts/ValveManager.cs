@@ -22,7 +22,7 @@ public class ValveManager : MonoBehaviour
 
     private void CheckValves()
     {
-        if(valves >= 10)
+        if(valves >= 3)
         {
             enoughValves.Invoke();
         }

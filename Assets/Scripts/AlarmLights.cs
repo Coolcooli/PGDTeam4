@@ -10,6 +10,9 @@ public class AlarmLights : MonoBehaviour
     private new List<Light> light = new List<Light>();
     private List<Animation> animations = new List<Animation>();
 
+    [SerializeField]
+    private AudioSource audioSource;
+
     private void Awake()
     {
         for (int i = 0; i < lights.Count; i++)
@@ -21,6 +24,7 @@ public class AlarmLights : MonoBehaviour
 
     public void AlarmOn()
     {
+        audioSource.Play();
         for(int i = 0; i < lights.Count; i++)
         {
             light[i].enabled = true;
@@ -30,6 +34,7 @@ public class AlarmLights : MonoBehaviour
 
     public void AlarmOf()
     {
+        audioSource.Stop();
         for (int i = 0; i < animations.Count; i++)
         {
             light[i].enabled = false;
