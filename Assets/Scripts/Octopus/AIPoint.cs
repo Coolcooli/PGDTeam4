@@ -31,12 +31,17 @@ public class AIPoint : MonoBehaviour
             case "Player":
                 if(!active) return;
                 active = false;
-                calculateNext(calculateDirection(other.transform));
+                SendNext(calculateDirection(other.transform));
                 break;
             
             case "Lizard":
-                active = true;
                 lizard = other.GetComponent<OctopusPathFinding>();
+
+                //check if this point is destination point
+                if(lizard.Agent.destination != transform.position)
+                    return;
+                
+                active = true;
                 lizard.animator.SetBool("walking", false);
                 break;
         }
@@ -44,10 +49,10 @@ public class AIPoint : MonoBehaviour
 
 
     /// <summary>
-    /// calculates the next move the agent has to move to
+    /// sends the agent to the next point
     /// </summary>
-    /// <param name="other"></param>
-    protected virtual void calculateNext(Approachdir direction){
+    /// <param name="direction">the direction the player comes from</param>
+    protected virtual void SendNext(Approachdir direction){
         lizard.moveNext(nextPoints[direction]);
     }
 
@@ -69,7 +74,7 @@ public class AIPoint : MonoBehaviour
             direction = distance.z < 0 ? Approachdir.north : Approachdir.south;
 
         }
-        Debug.Log(direction);
+
         return direction;
     }
 }

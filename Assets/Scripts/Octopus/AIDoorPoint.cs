@@ -24,10 +24,10 @@ public class AIDoorPoint : AIPoint
     }
 
     /// <summary>
-    /// calculates which path should be taken considering the closed doors
+    /// finds the right direction the agent has to go considering doors
     /// </summary>
     /// <param name="direction">the direciton that the agent is supposed to go</param>
-    protected override void calculateNext(Approachdir direction)
+    protected override void SendNext(Approachdir direction)
     {
         Approachdir newDirection = CheckDoor(direction);
 
@@ -37,7 +37,7 @@ public class AIDoorPoint : AIPoint
             return;
         }
         Debug.Log("New: " +newDirection);
-        base.calculateNext(newDirection);
+        base.SendNext(newDirection);
     }
 
     /// <summary>

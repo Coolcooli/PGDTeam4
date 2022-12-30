@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class OctopusPathFinding : MonoBehaviour
 {
     private NavMeshAgent agent;
+    public NavMeshAgent Agent { get { return agent; } }
     [HideInInspector]public Animator animator;
 
     [SerializeField] private Transform start;
