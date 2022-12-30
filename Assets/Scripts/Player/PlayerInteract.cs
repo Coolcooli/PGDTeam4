@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using static UnityEngine.InputSystem.InputAction;
@@ -7,14 +8,32 @@ using static UnityEngine.InputSystem.InputAction;
 public class PlayerInteract : MonoBehaviour
 {
     [SerializeField]
+    TMP_Text interactionText;
+
+    [SerializeField]
     public static int InteractRange = 3;//the range how far away the player can interact with objects
     private Transform cam;//the camera of the player
     private PlayerInventory inventory;
+
+    private RaycastHit hit;
 
     private void Awake()
     {
         cam = Camera.main.transform;
         inventory = GetComponent<PlayerInventory>();
+    }
+
+    private void FixedUpdate()
+    {
+        string currentInteractText = "";
+        if (Physics.Raycast(cam.position, cam.forward, out hit, InteractRange))
+        {
+            if (hit.collider.TryGetComponent(out Interactable interactable))
+            {
+                currentInteractText = interactable.InteractText;
+            }
+        }
+        interactionText.text = currentInteractText;
     }
 
     /// <summary>
@@ -24,7 +43,6 @@ public class PlayerInteract : MonoBehaviour
     {
         if (context.performed)
         {
-            RaycastHit hit;
             if (Physics.Raycast(cam.position, cam.forward, out hit, InteractRange))
             {
                 hit.collider.GetComponent<IInteract>()?.OnInteract();
@@ -49,7 +67,7 @@ public class PlayerInteract : MonoBehaviour
                 if (placeable == null)
                     return;
 
-                if (!(inventory.Holding is Placeable))
+                if (inventory.Holding is not Placeable)
                     return;
 
                 if (placeable.Interaction(inventory.Holding as Placeable))

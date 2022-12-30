@@ -16,7 +16,7 @@ public class ToPlace : Interactable
     {
         if (placedItem == null)
             return;
-   
+
         onInteract?.Invoke();
         //placedItem = null;
     }

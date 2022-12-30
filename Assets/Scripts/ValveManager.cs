@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ValveManager : MonoBehaviour
+public class ValveManager : ItemManager
 {
     public UnityEvent enoughValves;
     [SerializeField]
