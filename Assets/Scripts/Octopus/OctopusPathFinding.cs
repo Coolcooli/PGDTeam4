@@ -9,7 +9,8 @@ public class OctopusPathFinding : MonoBehaviour
     public NavMeshAgent Agent { get { return agent; } }
     [HideInInspector]public Animator animator;
 
-    [SerializeField] private Transform start;
+    [SerializeField] private Transform goal;
+    public Transform Goal { get { return goal; } }
     
     void Awake()
     {
@@ -18,7 +19,7 @@ public class OctopusPathFinding : MonoBehaviour
     }
 
     void Start(){
-        agent.destination = start.position;
+        agent.destination = goal.position;
     }
 
     /// <summary>
@@ -37,5 +38,7 @@ public class OctopusPathFinding : MonoBehaviour
     public void moveNext(Transform next){
         animator.SetBool("walking", true);
         agent.destination = next.position;
+        goal = next;
+
     }
 }

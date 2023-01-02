@@ -38,7 +38,7 @@ public class AIPoint : MonoBehaviour
                 lizard = other.GetComponent<OctopusPathFinding>();
 
                 //check if this point is destination point
-                if(lizard.Agent.destination != transform.position)
+                if(lizard.Goal != transform)
                     return;
                 
                 active = true;

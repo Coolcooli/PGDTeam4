@@ -17,7 +17,7 @@ public class BaseDoor : MonoBehaviour
 
     void OnTriggerEnter(Collider c)
     {
-        if (isLocked || c.tag != "Player") return;
+        if (isLocked || (c.tag != "Player" && c.tag != "Lizard")) return;
         OpenDoor();
     }
 
