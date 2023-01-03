@@ -1,22 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class StartFade : MonoBehaviour
-{
-    private void OnEnable()
-    {
-        //SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode sceneMode)
-    {
-        GetComponent<Animator>().Play("FadeIn");
-    }
-
-    public void ManualFade()
-    {
-        GetComponent<Animator>().Play("FadeIn");
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:344064c30c4c7baa58a98ab9638b76eb15b57d4e4738c83375cbf1da8d711b66
+size 465
