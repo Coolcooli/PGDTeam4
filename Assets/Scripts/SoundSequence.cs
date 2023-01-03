@@ -31,7 +31,7 @@ public class SoundSequence : MonoBehaviour
         {
             currentClip++;
 
-            if (currentClip >= clips.Count + 1)
+            if (currentClip >= clips.Count)
             {
                 SequenceDone?.Invoke();
                 done = true;
