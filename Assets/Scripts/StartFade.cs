@@ -7,10 +7,15 @@ public class StartFade : MonoBehaviour
 {
     private void OnEnable()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        //SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode sceneMode)
+    {
+        GetComponent<Animator>().Play("FadeIn");
+    }
+
+    public void ManualFade()
     {
         GetComponent<Animator>().Play("FadeIn");
     }
