@@ -2080,7 +2080,7 @@ MonoBehaviour:
   cpuFullResolution: 1
   cpuEvaluateRipples: 1
   timeMultiplier: 1
-  repetitionSize: 500
+  repetitionSize: 250
   largeWindSpeed: 22
   largeWindOrientationValue: 0
   largeCurrentSpeedValue: 0
@@ -2181,7 +2181,7 @@ MonoBehaviour:
   waterMaskOffset: {x: 0, y: 0}
   decalLayerMask: 1
   lightLayerMask: 1
-  underWater: 1
+  underWater: 0
   volumeBounds: {fileID: 0}
   volumeDepth: 50
   volumePrority: 0

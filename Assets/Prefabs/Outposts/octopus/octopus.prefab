@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2015789577063231874}
   - component: {fileID: 2015789577063231873}
   - component: {fileID: 2015789577063231872}
+  - component: {fileID: 1993612601890821293}
   m_Layer: 0
   m_Name: octopus
   m_TagString: Lizard
@@ -62,8 +63,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 10
+  m_Acceleration: 398.93
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -85,8 +86,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.22
-  m_Center: {x: 0, y: 1.27, z: 0}
+  m_Radius: 0.09271848
+  m_Center: {x: 0, y: 0.82909167, z: 0}
 --- !u!114 &2015789577063231872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,7 +100,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85337d38a7cf1d478d217cf3c16fa68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goal: {fileID: 0}
+  animator: {fileID: 0}
+  start: {fileID: 0}
+--- !u!114 &1993612601890821293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015789577063231879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4309a12f406ce1f42b782e12c9a27b4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 2807468466017597019, guid: aa2698d3d6d6b864b97c668f88d4ca9e, type: 3}
 --- !u!1001 &2015789576917277226
 PrefabInstance:
   m_ObjectHideFlags: 0
