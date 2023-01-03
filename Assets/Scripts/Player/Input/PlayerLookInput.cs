@@ -27,7 +27,7 @@ public class PlayerLookInput : MonoBehaviour
         if (!allowLookInput) return;
 
         Vector2 input = context.ReadValue<Vector2>();
-        cameraRotation -= input.y * mouseSensitivity / 80 ;
+        cameraRotation -= input.y * mouseSensitivity / 80;
 
         cameraRotation = Mathf.Clamp(cameraRotation, -90, 90);
 

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Pickupable : Interactable
 {
@@ -8,17 +10,20 @@ public class Pickupable : Interactable
     new private Collider collider;
 
     [SerializeField]
-    private Vector3 holdRotation;
+    private Vector3 holdRotation = default;
     [SerializeField]
     private Vector3 holdOffset = new Vector3(0.5f, 0.4f, 0.6f);
     [SerializeField]
-    private float holdScale = 1;
+    private Vector3 holdScale = default;
     private Vector3 scale;
 
     void Awake()
     {
         //stores the real scale
         scale = transform.localScale;
+
+        holdScale = (holdScale == default) ? scale : holdScale;
+        holdRotation = (holdRotation == default) ? transform.eulerAngles : holdRotation;
 
         rigidbody = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
@@ -33,7 +38,7 @@ public class Pickupable : Interactable
         //sets the location to the hand and the parent to the player
         transform.parent = player.transform;
         transform.localPosition = holdOffset;
-        transform.localScale = new Vector3(holdScale, holdScale, holdScale);
+        transform.localScale = holdScale;
         transform.localEulerAngles = holdRotation;
 
         //disables gravity and collision

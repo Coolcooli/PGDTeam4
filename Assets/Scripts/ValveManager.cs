@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ValveManager : MonoBehaviour
+public class ValveManager : ItemManager
 {
     public UnityEvent enoughValves;
     [SerializeField]
@@ -22,7 +22,7 @@ public class ValveManager : MonoBehaviour
 
     private void CheckValves()
     {
-        if(valves >= 10)
+        if(valves >= 3)
         {
             enoughValves.Invoke();
         }

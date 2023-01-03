@@ -8,24 +8,30 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Base_Color_21
-  m_Shader: {fileID: 4800000, guid: aaf027cf78e7ac04283221b987555fef, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords:
+  m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
+  m_Parent: {fileID: 2100000, guid: 53efc9d0abb597f4480426be6110ecaa, type: 2}
+  m_ModifiedSerializedProperties: 10
+  m_ValidKeywords:
   - _ADD_PRECOMPUTED_VELOCITY
-  - _DETAIL_MULX2
-  - _NORMALMAP
+  - _DISABLE_SSR_TRANSPARENT
+  - _NORMALMAP_TANGENT_SPACE
+  m_InvalidKeywords: []
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses:
   - TransparentBackface
+  - TransparentDepthPrepass
+  - TransparentDepthPostpass
+  - RayTracingPrepass
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _BaseNormal:
-        m_Texture: {fileID: 2800000, guid: 7d09e7c7fffa5a94eadbfb28633eaa1e, type: 3}
+    - _BaseColorMap:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -40,31 +46,23 @@ Material:
         m_Texture: {fileID: 2800000, guid: 4a3848591ce935e4dad9a07fc6696f83, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _DetailNormal:
-        m_Texture: {fileID: 2800000, guid: 1c1221435ae8dd740802e4127090b7fa, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
         m_Texture: {fileID: 2800000, guid: 4b23194bba3d7c74bb0869f23340dad1, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailOcclusion:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DirtRoughness:
-        m_Texture: {fileID: 2800000, guid: 9ee49387df9326442af2587f7e7327c3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 500, y: 500}
         m_Offset: {x: 0, y: 0}
+    - _EmissiveColorMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 500, y: 500}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Mask:
+    - _MaskMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -72,143 +70,47 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Occlusion:
-        m_Texture: {fileID: 2800000, guid: d00647e08edf959499ca323bf7690345, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture0:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _TextureSample0:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _TextureSample1:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _TextureSample2:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _TilingAlbedo:
-        m_Texture: {fileID: 2800000, guid: bea7fa376f932ba419f3d1fc95bd1a2b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _TilingNormal:
-        m_Texture: {fileID: 2800000, guid: f5453dca2ac649e4182c56a3966ad395, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Utilities:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _UtilityMap:
-        m_Texture: {fileID: 2800000, guid: b24d43b95fdb1a04c944c68a016920d8, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _texcoord:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _texcoord3:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _texcoord4:
+    - _NormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _AddPrecomputedVelocity: 1
-    - _AlphaCutoff: 0.5
-    - _AlphaCutoffEnable: 0
-    - _AlphaDstBlend: 0
-    - _AlphaSrcBlend: 1
-    - _BaseDielectricSmoothness: 0.9
-    - _BaseDirtAmount: 0.001
-    - _BaseDirtStrength: 1.37
-    - _BaseMetallic: 0
-    - _BaseMetalness: 1
-    - _BaseNormalStrength: 0.4
-    - _BaseRoughness: 0.5
-    - _BaseSmoothnes: 1
-    - _BaseSmoothness: 0.85
-    - _BlendMode: 0
-    - _BumpScale: 1
     - _CullMode: 2
     - _CullModeForward: 2
-    - _Cutoff: 0.5
-    - _DetailCavityStrength: 0
-    - _DetailDirtStrength: 0.18
-    - _DetailEdgeSmoothness: 0.68
-    - _DetailEdgeStrength: 1
-    - _DetailEdgeWear: 0.3
-    - _DetailMetalSmoothness: 0
-    - _DetailNormalMapScale: 1
-    - _DetailOcclusionStrength: 0.5
-    - _DirtAmount: 0
     - _DoubleSidedEnable: 0
     - _DoubleSidedNormalMode: 2
-    - _DstBlend: 0
-    - _EdgeMetallicSmoothness: 0.7
-    - _EdgeSmoothness: 0.72
-    - _EnableFogOnTransparent: 1
-    - _Float0: 0
-    - _GlossMapScale: 1
+    - _EmissiveIntensity: 1
+    - _EmissiveIntensityUnit: 0
     - _Glossiness: 0.654
-    - _GlossyReflections: 1
-    - _MetalTrimSmoothness: 0.75
+    - _LinkDetailsWithBase: 1
     - _Metallic: 0
-    - _Metalness: 0
-    - _Mode: 0
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _ReceivesSSR: 1
-    - _RenderQueueType: 1
-    - _RequireSplitLighting: 0
+    - _MetallicRemapMax: 0
     - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _SrcBlend: 1
-    - _StencilRef: 0
-    - _StencilRefDepth: 8
-    - _StencilRefDistortionVec: 4
-    - _StencilRefGBuffer: 10
-    - _StencilRefMV: 40
-    - _StencilWriteMask: 6
-    - _StencilWriteMaskDepth: 8
-    - _StencilWriteMaskDistortionVec: 4
-    - _StencilWriteMaskGBuffer: 14
-    - _StencilWriteMaskMV: 40
-    - _SurfaceType: 0
-    - _TransparentBackfaceEnable: 0
-    - _TransparentCullMode: 2
-    - _TransparentSortPriority: 0
+    - _SpecularOcclusionMode: 1
     - _TransparentZWrite: 1
     - _UVSec: 1
-    - _UseShadowThreshold: 0
-    - _ZTestDepthEqualForOpaque: 3
-    - _ZTestGBuffer: 4
-    - _ZTestTransparent: 4
-    - _ZWrite: 1
-    - __dirty: 0
+    - _UseEmissiveIntensity: 0
     m_Colors:
     - _BaseColor: {r: 0.8235294, g: 0.972549, b: 1, a: 1}
-    - _BaseColorOverlay: {r: 0.81960785, g: 0.96862745, b: 0.9882353, a: 1}
-    - _BaseDirtColor: {r: 0.39607844, g: 0.30980393, b: 0.12156863, a: 1}
     - _Color: {r: 0.8235294, g: 0.972549, b: 1, a: 1}
-    - _Color0: {r: 0.985294, g: 0.985294, b: 0.985294, a: 0}
-    - _DetailColor: {r: 0.68235296, g: 0.6509804, b: 0.20784314, a: 1}
-    - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
-    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
+--- !u!114 &8275069317425747548
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 13
+  hdPluginSubTargetMaterialVersions:
+    m_Keys: []
+    m_Values: 
