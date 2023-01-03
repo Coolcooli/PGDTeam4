@@ -190,7 +190,7 @@ Material:
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 1
     - _DstBlend: 0
-    - _Emission: 121.4
+    - _Emission: 5000
     - _EmissiveColorMode: 1
     - _EmissiveExposureWeight: 1
     - _EmissiveIntensity: 1
@@ -272,7 +272,7 @@ Material:
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
     - _ZWrite: 1
-    - _thickness: 9.2
+    - _thickness: 1
     - _tranparancy: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
