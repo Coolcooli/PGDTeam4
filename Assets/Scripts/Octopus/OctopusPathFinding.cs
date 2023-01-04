@@ -30,8 +30,11 @@ public class OctopusPathFinding : MonoBehaviour
     }
 
     void Update(){
-        if(!walking)
+        if (!walking)
+        {
             model.LookAt(player);
+            model.Rotate(new Vector3(90, 0, 0));
+        }
 
     }
 
@@ -39,7 +42,6 @@ public class OctopusPathFinding : MonoBehaviour
     /// function that sets the right animations when the agent arrives at a point
     /// </summary>
     public void Arrive(){
-        Debug.Log("kijk");
         walking = false;
         animator.SetBool("walking", false);
     }
@@ -58,6 +60,7 @@ public class OctopusPathFinding : MonoBehaviour
     /// </summary>
     /// <param name="next">transform point you want the agent to walk to</param>
     public void moveNext(Transform next){
+        model.Rotate(new Vector3(-90, 0, 0));
         walking = true;
         animator.SetBool("walking", true);
         agent.destination = next.position;
