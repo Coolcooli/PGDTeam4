@@ -42,7 +42,7 @@ public class AIPoint : MonoBehaviour
                     return;
                 
                 active = true;
-                lizard.animator.SetBool("walking", false);
+                lizard.Arrive();
                 break;
         }
     }

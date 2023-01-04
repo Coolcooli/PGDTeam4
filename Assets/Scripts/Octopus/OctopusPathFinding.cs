@@ -7,28 +7,50 @@ public class OctopusPathFinding : MonoBehaviour
 {
     private NavMeshAgent agent;
     public NavMeshAgent Agent { get { return agent; } }
-    [HideInInspector]public Animator animator;
+    private Transform model;
+    private Animator animator;
+
+    private Transform player;
 
     [SerializeField] private Transform goal;
     public Transform Goal { get { return goal; } }
-    
+
+    bool walking = false;
+
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponentInChildren<Animator>();
+        model = gameObject.transform.GetChild(0);
+        animator = model.GetComponent<Animator>();
+        player = Camera.main.transform;
     }
 
     void Start(){
         agent.destination = goal.position;
     }
 
+    void Update(){
+        if(!walking)
+            model.LookAt(player);
+
+    }
+
+    /// <summary>
+    /// function that sets the right animations when the agent arrives at a point
+    /// </summary>
+    public void Arrive(){
+        Debug.Log("kijk");
+        walking = false;
+        animator.SetBool("walking", false);
+    }
+
     /// <summary>
     /// makes the octopus drop the item and stop moving
     /// </summary>
     public void giveUp(){
-        animator.SetBool("walking", false);
+        Arrive();
         transform.LookAt(new Vector3(transform.position.x, -1, transform.position.z));
-        GetComponent<ItemDrop>().DropItem();
+        model.GetComponent<ItemDrop>().DropItem();
     }
 
     /// <summary>
@@ -36,6 +58,7 @@ public class OctopusPathFinding : MonoBehaviour
     /// </summary>
     /// <param name="next">transform point you want the agent to walk to</param>
     public void moveNext(Transform next){
+        walking = true;
         animator.SetBool("walking", true);
         agent.destination = next.position;
         goal = next;
