@@ -1607,6 +1607,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: octopus
       objectReference: {fileID: 0}
+    - target: {fileID: 3319296345421104186, guid: 4c2ae33eefaea4242b24e6d2c23b94bc,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 42781722528529930, guid: fe45d4338d9b3a647a5e307d501f97b2,
+        type: 3}
+    - target: {fileID: 3319296345421104186, guid: 4c2ae33eefaea4242b24e6d2c23b94bc,
+        type: 3}
+      propertyPath: holdPos
+      value: 
+      objectReference: {fileID: 7799700549655558000}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1615,6 +1626,12 @@ PrefabInstance:
 --- !u!4 &7796149456654787528 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2015789577063231868, guid: 4c2ae33eefaea4242b24e6d2c23b94bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 8631422810818515636}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7799700549655558000 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2015047489507943876, guid: 4c2ae33eefaea4242b24e6d2c23b94bc,
     type: 3}
   m_PrefabInstance: {fileID: 8631422810818515636}
   m_PrefabAsset: {fileID: 0}
