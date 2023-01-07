@@ -270,7 +270,7 @@ Material:
     - _UseShadowThreshold: 0
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 4
-    - _ZTestTransparent: 4
+    - _ZTestTransparent: 8
     - _ZWrite: 1
     - _thickness: 9.2
     - _tranparancy: 1
