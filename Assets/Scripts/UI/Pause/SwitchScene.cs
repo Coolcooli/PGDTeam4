@@ -5,7 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class SwitchScene : MonoBehaviour
 {
-    public void SwitchTo(string Name){
-        SceneManager.LoadScene(Name);
+    [SerializeField]
+    private float delay = 0;
+
+    public void SwitchTo(string name){
+        StartCoroutine(Switch(name));
+    }
+
+    IEnumerator Switch(string name)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(name);
     }
 }

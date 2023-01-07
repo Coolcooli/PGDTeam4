@@ -16,9 +16,9 @@ public class ToPlace : Interactable
     {
         if (placedItem == null)
             return;
-   
+
         onInteract?.Invoke();
-        placedItem = null;
+        //placedItem = null;
     }
 
     public bool Interaction(Placeable placeable)
@@ -28,7 +28,7 @@ public class ToPlace : Interactable
         {
             placedItem = placeable;
             placeable.Remove.AddListener(Remove.Invoke);
-            //placeable.Remove.AddListener(() => placedItem = null);
+            placeable.Remove.AddListener(() => placedItem = null);
             placeable.Remove.AddListener(placeable.Remove.RemoveAllListeners);
             OnInteract();
             return true;

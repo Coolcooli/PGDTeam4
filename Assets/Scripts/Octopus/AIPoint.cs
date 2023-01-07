@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AIPoint : MonoBehaviour
 {
-    enum Approachdir {
+    protected enum Approachdir {
         north,east,south,west
     }
     [SerializeField] private Transform north = null;
@@ -15,10 +15,10 @@ public class AIPoint : MonoBehaviour
     private Dictionary<Approachdir, Transform> nextPoints = new Dictionary<Approachdir, Transform>();
 
     bool active = false;
-    OctopusPathFinding lizard;
+    protected OctopusPathFinding lizard;
 
 
-    void Start(){
+    virtual protected void Start(){
         nextPoints.Add(Approachdir.north, south);
         nextPoints.Add(Approachdir.east, west);
         nextPoints.Add(Approachdir.south, north);
@@ -26,20 +26,34 @@ public class AIPoint : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other){
-        Debug.Log(gameObject.name);
+
         switch (other.tag){
             case "Player":
                 if(!active) return;
                 active = false;
-                lizard.moveNext(nextPoints[calculateDirection(other.transform)]);
+                SendNext(calculateDirection(other.transform));
                 break;
             
             case "Lizard":
-                active = true;
                 lizard = other.GetComponent<OctopusPathFinding>();
+
+                //check if this point is destination point
+                if(lizard.Goal != transform)
+                    return;
+                
+                active = true;
                 lizard.animator.SetBool("walking", false);
                 break;
         }
+    }
+
+
+    /// <summary>
+    /// sends the agent to the next point
+    /// </summary>
+    /// <param name="direction">the direction the player comes from</param>
+    protected virtual void SendNext(Approachdir direction){
+        lizard.moveNext(nextPoints[direction]);
     }
 
 
@@ -60,7 +74,7 @@ public class AIPoint : MonoBehaviour
             direction = distance.z < 0 ? Approachdir.north : Approachdir.south;
 
         }
-        Debug.Log(direction);
+
         return direction;
     }
 }

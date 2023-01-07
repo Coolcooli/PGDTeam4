@@ -2,7 +2,6 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-#if UNITY_EDITOR
 
 namespace UnityStandardAssets.Utility
 {
@@ -35,4 +34,3 @@ namespace UnityStandardAssets.Utility
         }
     }
 }
-#endif

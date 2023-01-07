@@ -304,6 +304,7 @@ Shader "Triplebrick/Fluid_HDRP"
 			#pragma multi_compile DECALS_OFF DECALS_3RT DECALS_4RT
 			#pragma multi_compile _ LIGHT_LAYERS
 
+
 			#pragma vertex Vert
 			#pragma fragment Frag
 
@@ -3554,6 +3555,8 @@ Shader "Triplebrick/Fluid_HDRP"
 			#pragma multi_compile DECALS_OFF DECALS_3RT DECALS_4RT
 			#pragma multi_compile USE_FPTL_LIGHTLIST USE_CLUSTERED_LIGHTLIST
 			#pragma multi_compile SHADOW_LOW SHADOW_MEDIUM SHADOW_HIGH
+			//added by Robba
+			#pragma multi_compile_fragment AREA_SHADOW_MEDIUM AREA_SHADOW_HIGH
 
 			#pragma vertex Vert
 			#pragma fragment Frag

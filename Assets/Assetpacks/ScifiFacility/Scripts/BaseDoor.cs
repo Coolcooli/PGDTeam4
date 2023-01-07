@@ -10,12 +10,14 @@ public class BaseDoor : MonoBehaviour
     [SerializeField]
     private bool isLocked;
 
-    [SerializeField]
+    public bool IsLocked { get => isLocked; }
+
+        [SerializeField]
     private AudioSource doorSound;
 
     void OnTriggerEnter(Collider c)
     {
-        if (isLocked || c.tag != "Player") return;
+        if (isLocked || (c.tag != "Player" && c.tag != "Lizard")) return;
         OpenDoor();
     }
 
@@ -32,7 +34,7 @@ public class BaseDoor : MonoBehaviour
 
     protected virtual void CloseDoor()
     {
-        if (isLocked) return;
+
         doorSound.Play();
     }
 
@@ -41,8 +43,9 @@ public class BaseDoor : MonoBehaviour
         isLocked = false;
     }
 
-    public void ToggleLock()
+    public virtual void ToggleLock()
     {
+        Debug.Log(isLocked);
         isLocked = !isLocked;
     }
 }
