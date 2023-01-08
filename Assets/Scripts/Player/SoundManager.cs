@@ -22,8 +22,11 @@ public class SoundManager : MonoBehaviour
         foreach (AudioSource sound in sounds)
             audioSources.Add(sound.name, sound);
 
-        foreach (AudioSource sound in loopSounds)
+        foreach (AudioSource sound in loopSounds){
             audioSources.Add(sound.name, sound);
+            StopLoop(sound.name);
+        }
+
     }
 
     /// <summary>

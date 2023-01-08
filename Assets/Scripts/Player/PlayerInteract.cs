@@ -33,6 +33,8 @@ public class PlayerInteract : MonoBehaviour
                 currentInteractText = interactable.InteractText;
             }
         }
+        if(interactionText == null)
+            return;
         interactionText.text = currentInteractText;
     }
 

@@ -52,9 +52,8 @@ public class PlayerMovement : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         player = GetComponent<Player>();
+        sound = GetComponent<SoundManager>();
         playerCamera = Camera.main;
-        sound.StopLoop("movementSound");
-        sound.StopLoop("swimSound");
 
     }
 
