@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: -4291073222759767421}
   - component: {fileID: 5879487736362399506}
   - component: {fileID: 4792251424872913590}
-  - component: {fileID: 264427449239939327}
   - component: {fileID: 7013682936526977555}
   m_Layer: 0
   m_Name: SM_Player
@@ -93,6 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc99fa6113917224aa193832ecb4cedf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionText: {fileID: 0}
 --- !u!114 &2016603653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,8 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a4ce462c0e9a24396f4a3fecddf012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSound: {fileID: 1854192292256572555}
-  swimSound: {fileID: 5428587542765769535}
   jumpForce: 8
   deceleration: 1
   landSpeed: 5
@@ -345,25 +343,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &264427449239939327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355036789072795770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b98fd0539c84e849a25d42e8ec79ee8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  oxygen: 25
-  maxOxygen: 25
-  minOxygen: 0
-  oxygenCost: 1
-  oxygenRegen: 3
-  oxygenBar: {fileID: 0}
-  drownSound: {fileID: 0}
 --- !u!114 &7013682936526977555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,6 +359,9 @@ MonoBehaviour:
   - {fileID: 6721161290179963313}
   - {fileID: 1070343894337620439}
   - {fileID: 6096256382274322446}
+  loopSounds:
+  - {fileID: 1854192292256572555}
+  - {fileID: 5428587542765769535}
 --- !u!1 &1355036789228639544
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +392,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8890018955739557381}
   m_Father: {fileID: 1355036789072795771}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1208,7 +1191,7 @@ GameObject:
   - component: {fileID: 6340528004957548469}
   - component: {fileID: 1854192292256572555}
   m_Layer: 0
-  m_Name: metalWalk
+  m_Name: movementSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1336,7 +1319,7 @@ GameObject:
   - component: {fileID: 1031082991466386938}
   - component: {fileID: 5428587542765769535}
   m_Layer: 0
-  m_Name: Swim
+  m_Name: swimSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1458,6 +1441,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 1355036789228639547}
     m_Modifications:
     - target: {fileID: 7135884061237776239, guid: 8c75b637fd3feca4f82b0ff6070d4dbf,
@@ -1536,33 +1520,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c75b637fd3feca4f82b0ff6070d4dbf, type: 3}
---- !u!1 &5700091555221891800 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6293506549510093764, guid: 8c75b637fd3feca4f82b0ff6070d4dbf,
-    type: 3}
-  m_PrefabInstance: {fileID: 1751282112399462684}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8883928000222191219 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7135884061237776239, guid: 8c75b637fd3feca4f82b0ff6070d4dbf,
-    type: 3}
-  m_PrefabInstance: {fileID: 1751282112399462684}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5548223477698169573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8883928000222191219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cf564e43a0ec894e838bbc904df992c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trigger: {fileID: 5700091555221891800}
-  player: {fileID: 1355036789072795760}
 --- !u!4 &8890018955739557381 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7138905725212344089, guid: 8c75b637fd3feca4f82b0ff6070d4dbf,
