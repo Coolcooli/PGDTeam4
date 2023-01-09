@@ -1,31 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class MaterialEmissionEditor : MonoBehaviour
-{
-    [SerializeField]
-    private Material material;
-
-    private float originValue = 0;
-
-    private void Start()
-    {
-        originValue = material.GetFloat("_EmissiveIntensity");
-    }
-
-    public void MaterialEmission(float amount)
-    {
-        material.SetFloat("_EmissiveIntensity", amount);
-    }
-
-    public void Reset()
-    {
-        material.SetFloat("_EmissiveIntensity", originValue);
-    }
-
-    private void OnApplicationQuit()
-    {
-        Reset();
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:6872c66000d5f10189be98dff9aa3c6d95956a4130a9a31da1e4de623101e58a
+size 608

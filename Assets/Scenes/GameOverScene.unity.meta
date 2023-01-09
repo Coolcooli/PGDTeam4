@@ -1,12 +1,3 @@
-fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Scenes/GameOverScene.unity.meta
-guid: 32a0c5a827f4b5946918c72100edcac2
-DefaultImporter:
-========
-guid: 7cf495e1afb3cc14783507f4c854fcef
-PrefabImporter:
->>>>>>>> e7bc8969e945609f4b497d3ae71cd54b0a04c7db:Assets/Prefabs/UI.prefab.meta
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+version https://git-lfs.github.com/spec/v1
+oid sha256:2c3f365eefe60d475516936be84dbd9d1b0dc565d90c82480d00578dc25f7425
+size 352

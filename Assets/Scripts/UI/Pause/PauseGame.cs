@@ -1,34 +1,3 @@
-using UnityEngine.InputSystem;
-using UnityEngine;
-
-public class PauseGame : MonoBehaviour
-{
-    [SerializeField]private GameObject pauseUI;
-    [SerializeField] private GameObject Player;
-
-
-    /// <summary>
-    /// function that pauses the game
-    /// </summary>
-    public void Pause(){
-        Cursor.lockState = CursorLockMode.None;
-
-        Time.timeScale = 0;
-
-        GameObject[] UI = GameObject.FindGameObjectsWithTag("UI");
-
-        foreach(GameObject UIobj in UI){
-
-            UIobj.SetActive(false);
-        }
-
-        pauseUI.SetActive(true);
-
-
-        PlayerInput input = Player.GetComponent<PlayerInput>();
-
-        input.actions.FindActionMap("Player").Disable();
-        input.actions.FindActionMap("UI").Enable();
-
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:2c17dbcc73d4a9f3c514b48e623acc076cf09742664b60dad7960b49d3cbf8dd
+size 743
