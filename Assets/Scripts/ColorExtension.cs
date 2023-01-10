@@ -1,13 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public static class ColorExtension 
-{
-    public static bool IsSimilarTo(this Color c1, Color c2, float tolerance)
-    {
-        return Mathf.Abs(c1.r - c2.r) < tolerance &&
-               Mathf.Abs(c1.g - c2.g) < tolerance &&
-               Mathf.Abs(c1.b - c2.b) < tolerance;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:3e4bf1055aa6dec81024ddfe82f4be74997b04e7fd5b36aed8fd943f26383930
+size 366

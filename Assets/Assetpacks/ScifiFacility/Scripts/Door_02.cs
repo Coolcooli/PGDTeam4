@@ -1,24 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Net.NetworkInformation;
-using UnityEngine;
-
-public class Door_02 : BaseDoor
-{
-    protected override void OpenDoor()
-    {
-        base.OpenDoor();
-
-        wings[0]["door_02_wing"].speed = 1;
-        wings[0].Play();
-    }
-
-    protected override void CloseDoor()
-    {
-        base.CloseDoor();
-
-        wings[0]["door_02_wing"].time = wings[0]["door_02_wing"].length;
-        wings[0]["door_02_wing"].speed = -1;
-        wings[0].Play();
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d748526e26c7376c0012331e698a98218aad62b5b1c93d59b1e969db1e36b119
+size 525

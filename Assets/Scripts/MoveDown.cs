@@ -1,29 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class MoveDown : MonoBehaviour
-{
-    private bool move = false;
-
-    private float origin;
-
-    private void Start()
-    {
-        origin = transform.position.y;
-    }
-    private void Update()
-    {
-        if (!move)
-            return;
-
-        if(transform.position.y < origin + 10)
-        {
-            transform.position += -transform.up*0.01f;
-        }
-    }
-    public void StartMove()
-    {
-        move = true;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:3ece083972b2af43f7f165ebfd755f2874bf3be5e5a7300c44cae3ea4c87905b
+size 518
