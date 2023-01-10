@@ -1,28 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
-
-public class TriggerChecker : MonoBehaviour
-{
-    public UnityEvent onTrigger;
-
-    [SerializeField]
-    private bool multiTriggerable = true;
-
-    private bool triggered = false;
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(multiTriggerable)
-        {
-            onTrigger?.Invoke();
-            triggered = true;
-        }
-        else if(!multiTriggerable && !triggered)
-        {
-            onTrigger?.Invoke();
-            triggered = true;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b1314eb4d35c0fa756a3414f68e1c867da195b60940c49a9f84c35f602ded161
+size 593

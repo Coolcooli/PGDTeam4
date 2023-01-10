@@ -1,10 +1,3 @@
-Thank you for purchasing the SciFi Facility package. We hope it fits your needs and we wish you the best with your project.
-
-BuildIn Renderpipeline
-This package uses linear color space and the deferred render path. Please change your project settings accordingly.
-Generate the Lighting (Screenshots are using Realtime GlobalIllumination).
-
-HDRP, URP
-Create a new project (URP or HDRP). Import the according package found in the folder RenderPipelines.
-
-Best Triplebrick
+version https://git-lfs.github.com/spec/v1
+oid sha256:66c63436853e99f231cd0ff2d80d4641b0f3408a86d13f82dd8276e6073e25ba
+size 469

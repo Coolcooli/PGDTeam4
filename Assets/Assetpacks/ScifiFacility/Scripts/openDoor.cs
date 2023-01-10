@@ -1,23 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.NetworkInformation;
-using UnityEngine;
-
-public class openDoor : Door_02
-{
-    public override void ToggleLock()
-    {
-        
-        base.ToggleLock();
-        if(IsLocked){
-            CloseDoor();
-        }else{
-            OpenDoor();
-        }
-    }
-
-    private void Start(){
-        if(!IsLocked)
-            OpenDoor();
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:c02e112eb407511dd9cff145ddc58db55ff501bb7b05e41f3d1cfa03061bc039
+size 413
