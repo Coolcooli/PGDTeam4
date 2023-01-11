@@ -1,23 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class musicHandler : MonoBehaviour
-{
-    private AudioSource source;
-    [SerializeField] private AudioClip looppart;
-
-    private void Start(){
-        source = GetComponent<AudioSource>();
-        StartCoroutine(Switch());
-    }
-
-    /// <summary>
-    /// changes the song after it's finished
-    /// </summary>
-    IEnumerator Switch(){
-        yield return new WaitForSeconds(31);
-        source.clip = looppart;
-        source.Play();
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:038dca49ff66ff1e9171106b5a45a5b38eb701078a1273de0055dc99df7df468
+size 535
