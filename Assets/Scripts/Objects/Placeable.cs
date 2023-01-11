@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ed79f9e24863066a839053ee309b252a278b331f200040ebdd9ccc3d29226f31
-size 325
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+
+public class Placeable : Pickupable
+{
+    public UnityEvent Place;
+    public UnityEvent Remove;
+
+    public override void Pickup(GameObject player)
+    {
+        base.Pickup(player);
+
+        Remove?.Invoke();
+    }
+}

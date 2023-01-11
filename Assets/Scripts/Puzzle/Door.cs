@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0aab189e8aeb00f989be339d0965ea6638269dd1baaa5cdc4b0cbf5cdc1970de
-size 545
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Door : MonoBehaviour
+{
+    private Animator animator;
+    [SerializeField]
+    private bool opened = false;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        animator.SetBool("open", opened);
+    }
+
+    public void ToggleDoor()
+    {
+        opened = !opened;
+
+        animator.SetBool("open", opened);
+    }
+
+    public void OpenDoor()
+    {
+        opened = true;
+
+        animator.SetBool("open", opened);
+    }
+}

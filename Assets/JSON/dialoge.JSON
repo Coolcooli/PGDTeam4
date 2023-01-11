@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:68ae6ae3eea1f89bdf23064a00b9e2234eb98800103e293be7d3c0c24f5d6229
-size 232
+{
+  "dialoges": [
+    {
+      "index": 0,
+      "name": "Me",
+      "sentences": [ "test1", "test2", "test3" ]
+    },
+    {
+      "index": 1,
+      "name": "Captain",
+      "sentences": [ "the key is in the engine room"]
+    }
+  ]
+}

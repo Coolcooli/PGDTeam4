@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a47cad1d5db1286e47976090e9a38b666a3971381ab03aba8aeb2bf84dc716b9
-size 666
+Thank you for downloading Iguana.
+
+This is a semi realistic 3d model and animations of an Iguana. 
+-Models folder contains IguanaModel.FBX.
+-Animations folder contains FBX files of animations.
+Walk animations are compatible with root motion.
+-Textures folder contains textures.
+These are main contents of this package.
+
+Following is an example use of the Iguana model. 
+-Scenes folder contains demo scene.
+-Prefabs folder contains prefabs that are used in the demo scene.
+-Scripts folder contains scripts that are used in the demo scene.
+-Animator folder contains animator controller that is used the prefab.
+
+http://eizouasobi.blogspot.jp
+support@ryousirikigaku.com

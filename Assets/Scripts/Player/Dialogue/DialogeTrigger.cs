@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5ad1c136e5dcb71b2aa8b1c4166b4744b12b1a3c2ff9f4c5b2304081d83f416b
-size 483
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+
+public class DialogeTrigger : MonoBehaviour
+{
+    public UnityEvent<int> onDialogeTrigger;
+    //private Dialoges dialoges;
+    [SerializeField]
+    private DialogeManager dialogeManager;
+    public int index;
+    [SerializeField]
+    //public ImportDialoge dialogeImporter;
+
+    public void OnTriggerEnter(Collider other)
+    {
+        onDialogeTrigger.Invoke(index);
+    }
+}

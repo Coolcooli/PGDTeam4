@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cb2b2edff6d519cd31cee95e7859246c98a71ca8e122df8cc112b568977c25d2
-size 891
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class TriggerTeleport : MonoBehaviour
+{
+    [SerializeField]
+    public Vector3 destination;
+    public string scene;
+    private CharacterController controller;
+    public GameObject player;
+
+    private void Start()
+    {
+        controller = player.GetComponent<CharacterController>();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("tp");
+        if(scene != "")
+        {
+            controller.enabled = false;
+            SceneManager.LoadScene(scene);
+            player.transform.position = destination;
+            controller.enabled = true;
+
+        } else
+        {
+            controller.enabled = false;
+            player.transform.position = destination;
+            controller.enabled = true;
+        }
+        
+    }
+}

@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0db41b9f644dbe24ace023e165a07ab9dc8817069f18304209d08178026f7972
-size 377
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ActiveState : MonoBehaviour
+{
+    private Material mat;
+
+    private void Awake()
+    {
+        mat = GetComponent<MeshRenderer>().material;
+    }
+
+    public void SetActiveState(bool newState)
+    {
+        mat.SetFloat("_IsActive", Convert.ToInt32(newState));
+    }
+}

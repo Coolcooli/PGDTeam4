@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:00559b4dbbbe59e31b6be18cb17f391f42b6edb57636c335beeb6a247a86c284
-size 464
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Floating : MonoBehaviour
+{
+    [SerializeField] private AnimationCurve curve;
+
+    /// <summary>
+    /// Called once per frame.
+    /// </summary>
+    private void Update()
+    {
+        // make this object float by following the animation curve
+        transform.position = new Vector3(transform.position.x, curve.Evaluate(Time.time % 1), transform.position.z);
+    }
+}

@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:98b4fb6be02e413087ceaaa03c4aa09b7286f21e7baf7dd0c4c771c1be4eba18
-size 361
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class LockObject : MonoBehaviour
+{
+    [SerializeField] private Transform targetPosition;
+    [SerializeField] private Rigidbody objectToLock;
+
+    public void Lock()
+    {
+        objectToLock.position = targetPosition.position;
+        objectToLock.drag = 100000;
+    }
+}

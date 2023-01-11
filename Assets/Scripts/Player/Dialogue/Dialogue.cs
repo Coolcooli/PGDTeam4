@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:020c67c7c856fd8bd5142ad00545aa38fd86b5fa4c645cc26f81868c85372264
-size 241
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[System.Serializable ]
+public class Dialogue
+{
+    public string name; //prob never used but just incase
+    [TextArea(3, 10)]
+    public string[] sentences;
+
+}

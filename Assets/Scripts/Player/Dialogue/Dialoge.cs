@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ea4d43d502a9be7a0cbb19d7b990680a76fbb7e0d1ccbe5da23478cddaeed944
-size 299
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[System.Serializable ]
+public class Dialoge
+{
+    public int index; //index of the dialoge
+    public string name; //name for the dialoge
+    [TextArea(3, 10)]
+    public string[] sentences; //dialoge sentences
+    
+
+}

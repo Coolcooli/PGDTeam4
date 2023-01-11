@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1b8878a2c3f8873c66ca9263e4654e97d796afde7fed6494630fd112599b6fbc
-size 763
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+
+public class PlayerSeeMonster : MonoBehaviour
+{
+    public UnityEvent OnSeeMonster;
+    [SerializeField]
+    Transform player;
+    [SerializeField]
+    Transform monster;
+
+    private bool hasInvoked = false;
+    public bool ShouldStartChecking { set; private get; }
+
+    private void Update()
+    {
+        if (hasInvoked || !ShouldStartChecking) return;
+
+        Vector3 monsterDirection = monster.position - player.position;
+        float angle = Mathf.Acos(Vector3.Dot(player.forward, monsterDirection.normalized));
+        if (angle <= 1.2f && angle > 0.5f)
+        {
+            OnSeeMonster.Invoke();
+            hasInvoked = true;
+        }
+    }
+}

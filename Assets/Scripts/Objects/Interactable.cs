@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e3ddb0f11fcd3223f65ab1a899209144f41bb590f461f20ae248343599308456
-size 376
+using UnityEngine;
+using UnityEngine.Events;
+
+public class Interactable : MonoBehaviour, IInteract
+{
+    public UnityEvent onInteract;//unity event that gets activated when a player interacts
+
+    [SerializeField]
+    private string interactText;
+    public string InteractText => interactText;
+
+    public virtual void OnInteract()
+    {
+        onInteract?.Invoke();
+    }
+}

@@ -1,3 +1,41 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ad10b8c30f0df2fa46f0f34a1a4c297e037cb5de17fc9030a49ce88a2f6787a6
-size 1085
+public class PlayerStateFactory
+{
+    private Player context;
+    private PlayerMovement movement;
+
+    public PlayerStateFactory(Player context, PlayerMovement movement)
+    {
+        this.context = context;
+        this.movement = movement;
+    }
+
+    // Create a factory by making functions for all states
+    public PlayerBaseState Idle()
+    {
+        return new PlayerIdleState(context, this, movement);
+    }
+    public PlayerBaseState Walk()
+    {
+        return new PlayerWalkState(context, this, movement);
+    }
+    public PlayerBaseState Sprint()
+    {
+        return new PlayerSprintState(context, this, movement);
+    }
+    public PlayerBaseState Jump()
+    {
+        return new PlayerJumpState(context, this, movement);
+    }
+    public PlayerBaseState InWater()
+    {
+        return new PlayerInWaterState(context, this, movement);
+    }
+    public PlayerBaseState Grounded()
+    {
+        return new PlayerGroundedState(context, this, movement);
+    }
+    public PlayerBaseState Floating()
+    {
+        return new PlayerFloatingState(context, this, movement);
+    }
+}

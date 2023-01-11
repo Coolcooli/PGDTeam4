@@ -1,3 +1,42 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e811a84b7c5b7925855f683ad8ce906ba7823d83a2b84dabe0a434e854c7f149
-size 752
+﻿using UnityEngine;
+using System.Collections;
+
+public class IguanaUserController : MonoBehaviour {
+	IguanaCharacter iguanaCharacter;
+	
+	void Start () {
+		iguanaCharacter = GetComponent < IguanaCharacter> ();
+	}
+	
+	void Update () {	
+		if (Input.GetButtonDown ("Fire1")) {
+			iguanaCharacter.Attack();
+		}
+		
+		if (Input.GetKeyDown (KeyCode.H)) {
+			iguanaCharacter.Hit();
+		}
+		
+		if (Input.GetKeyDown (KeyCode.E)) {
+			iguanaCharacter.Eat();
+		}
+
+		if (Input.GetKeyDown (KeyCode.K)) {
+			iguanaCharacter.Death();
+		}
+		
+		if (Input.GetKeyDown (KeyCode.R)) {
+			iguanaCharacter.Rebirth();
+		}		
+
+
+
+	}
+	
+	private void FixedUpdate()
+	{
+		float h = Input.GetAxis ("Horizontal");
+		float v = Input.GetAxis ("Vertical");
+		iguanaCharacter.Move (v,h);
+	}
+}
