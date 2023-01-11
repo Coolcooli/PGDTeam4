@@ -25,7 +25,7 @@ public class VolumeEditor : MonoBehaviour
         float times = 0;
         while(times < 5)
         {
-            if (volume.TryGet<Exposure>(out exposure))
+            if (volume.TryGet(out exposure))
             {
                 exposure.compensation.value = originValue;
                 timeDelay = Random.Range(0.05f, 0.3f);
@@ -45,7 +45,7 @@ public class VolumeEditor : MonoBehaviour
 
     public void ChangeExposure(float amount)
     {
-        if (volume.TryGet<Exposure>(out exposure))
+        if (volume.TryGet(out exposure))
         {
             exposure.compensation.value = amount;
         }
@@ -53,7 +53,7 @@ public class VolumeEditor : MonoBehaviour
 
     public void Reset()
     {
-        if (volume.TryGet<Exposure>(out exposure))
+        if (volume.TryGet(out exposure))
         {
             exposure.compensation.value = originValue;
         }
