@@ -22,7 +22,10 @@ public class Player : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+    }
 
+    private void Start()
+    {
         PlayerMovement movement = GetComponent<PlayerMovement>();
         states = new PlayerStateFactory(this, movement);
         currentState = movement.IsGrounded ? states.Grounded() : states.Jump();
